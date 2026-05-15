@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irish Gov Design System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    color: #1a1a1a;
+    background: #ffffff;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: #004D44;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header__harp {
+    flex-shrink: 0;
+  }
+  .header__text h1 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .header__text p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+  .header__badge {
+    margin-left: auto;
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  /* Sections */
+  .section {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  /* Options */
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    cursor: pointer;
+  }
+  .option input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    accent-color: #008660;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .option__label {
+    flex: 1;
+  }
+  .option__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .option__name .badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: #EAF4F5;
+    color: #004D44;
+  }
+  .option__desc {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* Info panel */
+  .info-panel {
+    background: #EAF4F5;
+    border-left: 3px solid #004D44;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 12px;
+    margin: 0 20px 14px;
+    font-size: 12px;
+    color: #004D44;
+    line-height: 1.5;
+  }
+  .info-panel strong { font-weight: 700; }
+
+  /* Footer */
+  .footer {
+    padding: 16px 20px;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Progress */
+  .progress {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #505A5F;
+    min-height: 20px;
+  }
+  .progress.visible { display: flex; }
+  .progress__spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #D5EEDB;
+    border-top-color: #008660;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Buttons */
+  .btn-row {
+    display: flex;
+    gap: 8px;
+  }
+  .btn {
+    flex: 1;
+    padding: 9px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s, opacity 0.15s;
+  }
+  .btn--primary {
+    background: #00875F;
+    color: #fff;
+  }
+  .btn--primary:hover { background: #006e4e; }
+  .btn--primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn--ghost {
+    background: transparent;
+    color: #505A5F;
+    border: 1px solid #e0e0e0;
+  }
+  .btn--ghost:hover { background: #f5f5f5; }
+
+  /* Success state */
+  .success {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #008660;
+    font-weight: 600;
+  }
+  .success.visible { display: flex; }
+  .success-icon {
+    width: 16px;
+    height: 16px;
+    background: #008660;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .success-icon svg { display: block; }
+
+  /* Colour preview strip */
+  .colour-strip {
+    display: flex;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    gap: 1px;
+  }
+  .colour-strip span { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header__harp">
+    <svg width="20" height="28" viewBox="0 0 20 28" fill="none" aria-hidden="true">
+      <path d="M10 1C7 1 5 4 5 8L5 26L7 26L7 8C7 5 8 3 10 3C12 3 13 5 13 8L13 26L15 26L15 8C15 4 13 1 10 1Z" fill="white"/>
+      <line x1="5" y1="9" x2="13" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+      <line x1="5" y1="12" x2="13" y2="12" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+      <line x1="5" y1="15" x2="13" y2="15" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+      <line x1="5" y1="18" x2="13" y2="18" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+      <line x1="5" y1="21" x2="13" y2="21" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+    </svg>
+  </div>
+  <div class="header__text">
+    <h1>Irish Gov Design System</h1>
+    <p>DPENDR Life Events · Social Housing</p>
+  </div>
+  <span class="header__badge">v1.0</span>
+</div>
+
+<!-- Colour preview -->
+<div style="padding: 12px 20px 0">
+  <div class="colour-strip">
+    <span style="background:#004D44"></span>
+    <span style="background:#008660"></span>
+    <span style="background:#00875F"></span>
+    <span style="background:#028072"></span>
+    <span style="background:#4DA373"></span>
+    <span style="background:#BFE7E4"></span>
+    <span style="background:#EAF4F5"></span>
+    <span style="background:#D5EEDB"></span>
+    <span style="background:#0B0C0C"></span>
+    <span style="background:#505A5F"></span>
+    <span style="background:#E0E0E0"></span>
+  </div>
+</div>
+
+<!-- Styles section -->
+<div class="section">
+  <div class="section-title">Styles</div>
+
+  <label class="option">
+    <input type="checkbox" id="opt-colors" checked>
+    <div class="option__label">
+      <div class="option__name">Colour styles <span class="badge">28 styles</span></div>
+      <div class="option__desc">Full palette + semantic tokens as local colour styles</div>
+    </div>
+  </label>
+
+  <label class="option">
+    <input type="checkbox" id="opt-text" checked>
+    <div class="option__label">
+      <div class="option__name">Text styles <span class="badge">9 styles</span></div>
+      <div class="option__desc">Hero, H1–H3, Body, Small, Caption, Overline in Lato</div>
+    </div>
+  </label>
+
+  <label class="option">
+    <input type="checkbox" id="opt-effects" checked>
+    <div class="option__label">
+      <div class="option__name">Effect styles <span class="badge">3 styles</span></div>
+      <div class="option__desc">Card, ambient, and chat panel shadows</div>
+    </div>
+  </label>
+</div>
+
+<!-- Pages section -->
+<div class="section">
+  <div class="section-title">Pages</div>
+
+  <label class="option">
+    <input type="checkbox" id="opt-cover" checked>
+    <div class="option__label">
+      <div class="option__name">Cover page</div>
+      <div class="option__desc">Branded cover with harp mark and project details</div>
+    </div>
+  </label>
+
+  <label class="option">
+    <input type="checkbox" id="opt-color-page" checked>
+    <div class="option__label">
+      <div class="option__name">Colour palette page</div>
+      <div class="option__desc">All swatches with hex values and token names</div>
+    </div>
+  </label>
+
+  <label class="option">
+    <input type="checkbox" id="opt-type-page" checked>
+    <div class="option__label">
+      <div class="option__name">Typography page</div>
+      <div class="option__desc">Full type scale specimen with all weights</div>
+    </div>
+  </label>
+
+  <label class="option">
+    <input type="checkbox" id="opt-components" checked>
+    <div class="option__label">
+      <div class="option__name">Components page <span class="badge">13 components</span></div>
+      <div class="option__desc">Buttons, cards, form fields, header, help panel, navigation</div>
+    </div>
+  </label>
+</div>
+
+<!-- Info -->
+<div class="info-panel">
+  <strong>Font requirement:</strong> Lato must be installed on your device or available in Figma. If Lato is unavailable, Inter will be used as a fallback.
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="progress" id="progress">
+    <div class="progress__spinner"></div>
+    <span id="progress-text">Generating...</span>
+  </div>
+  <div class="success" id="success">
+    <div class="success-icon">
+      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+        <path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    Design system generated successfully
+  </div>
+  <div class="btn-row">
+    <button class="btn btn--ghost" id="btn-cancel">Cancel</button>
+    <button class="btn btn--primary" id="btn-generate">Generate design system</button>
+  </div>
+</div>
+
+<script>
+  const btnGenerate = document.getElementById('btn-generate');
+  const btnCancel   = document.getElementById('btn-cancel');
+  const progress    = document.getElementById('progress');
+  const progressTxt = document.getElementById('progress-text');
+  const success     = document.getElementById('success');
+
+  btnGenerate.addEventListener('click', () => {
+    const options = {
+      colorStyles:   document.getElementById('opt-colors').checked,
+      textStyles:    document.getElementById('opt-text').checked,
+      effectStyles:  document.getElementById('opt-effects').checked,
+      coverPage:     document.getElementById('opt-cover').checked,
+      colorPage:     document.getElementById('opt-color-page').checked,
+      typePage:      document.getElementById('opt-type-page').checked,
+      components:    document.getElementById('opt-components').checked,
+    };
+
+    // Show progress
+    btnGenerate.disabled = true;
+    btnCancel.disabled   = true;
+    progress.classList.add('visible');
+    success.classList.remove('visible');
+
+    parent.postMessage({ pluginMessage: { type: 'generate', options } }, '*');
+  });
+
+  btnCancel.addEventListener('click', () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+  });
+
+  window.onmessage = (event) => {
+    const msg = event.data.pluginMessage;
+    if (!msg) return;
+
+    if (msg.type === 'progress') {
+      progressTxt.textContent = msg.message;
+    }
+
+    if (msg.type === 'done') {
+      progress.classList.remove('visible');
+      success.classList.add('visible');
+      btnGenerate.disabled = false;
+      btnCancel.disabled   = false;
+      btnGenerate.textContent = 'Generate again';
+    }
+
+    if (msg.type === 'error') {
+      progress.classList.remove('visible');
+      progressTxt.textContent = '';
+      btnGenerate.disabled = false;
+      btnCancel.disabled   = false;
+      alert('Error: ' + msg.message);
+    }
+  };
+</script>
+</body>
+</html>

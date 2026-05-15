@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+  .chip { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px; border: 1px solid #e0e0e0; }
+  .dot { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; }
+  .info { display: flex; flex-direction: column; gap: 1px; }
+  .name { font-size: 10px; font-weight: 700; color: #263238; }
+  .role { font-size: 9px; color: #888; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="chip"><div class="dot" style="background:#004D44"></div><div class="info"><div class="name">bg-hero</div><div class="role">Home hero header</div></div></div>
+    <div class="chip"><div class="dot" style="background:#008660"></div><div class="info"><div class="name">bg-header</div><div class="role">Standard header</div></div></div>
+    <div class="chip"><div class="dot" style="background:#EAF4F5;border:1px solid #ccc"></div><div class="info"><div class="name">bg-card</div><div class="role">Card background</div></div></div>
+    <div class="chip"><div class="dot" style="background:#F0F0F0;border:1px solid #ccc"></div><div class="info"><div class="name">bg-card-inner</div><div class="role">Inner card / muted</div></div></div>
+    <div class="chip"><div class="dot" style="background:#004D44"></div><div class="info"><div class="name">bg-help</div><div class="role">Need Help panel</div></div></div>
+    <div class="chip"><div class="dot" style="background:#F2F2F2;border:1px solid #ccc"></div><div class="info"><div class="name">bg-page</div><div class="role">Form page background</div></div></div>
+    <div class="chip"><div class="dot" style="background:#0B0C0C"></div><div class="info"><div class="name">text-primary</div><div class="role">Main body text</div></div></div>
+    <div class="chip"><div class="dot" style="background:#004D44"></div><div class="info"><div class="name">text-heading</div><div class="role">Section headings</div></div></div>
+    <div class="chip"><div class="dot" style="background:#505A5F"></div><div class="info"><div class="name">text-secondary</div><div class="role">Supporting text</div></div></div>
+    <div class="chip"><div class="dot" style="background:#FFFFFF;border:1px solid #ccc"></div><div class="info"><div class="name">text-on-dark</div><div class="role">Text on green bg</div></div></div>
+    <div class="chip"><div class="dot" style="background:#00875F"></div><div class="info"><div class="name">btn-primary</div><div class="role">Primary button fill</div></div></div>
+    <div class="chip"><div class="dot" style="background:#19B729"></div><div class="info"><div class="name">success</div><div class="role">Online indicator</div></div></div>
+  </div>
+</body>
+</html>

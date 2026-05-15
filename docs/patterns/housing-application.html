@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Housing Application — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Housing application pattern</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Patterns</li><li aria-current="page">Housing application</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Housing application</h1>
+        <p class="page-header__desc">A mobile-first multi-step application flow allowing citizens to apply for social housing in a single, streamlined session.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--pattern">Pattern</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-screens" id="tab-screens">Screens</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <p class="lead">The Social Housing Application is the primary product in scope for this design system. It is a mobile-first flow (390px canvas) where a citizen completes a series of sections to apply for housing support from their local authority.</p>
+
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>The full interactive prototype is available at <code>ui_kits/social-housing/index.html</code>. Open it directly in a browser — no build step required.</div>
+        </div>
+
+        <h2>Application flow</h2>
+        <ol class="pattern-steps">
+          <li class="pattern-step">
+            <div class="pattern-step__num">1</div>
+            <div>
+              <div class="pattern-step__title">Home screen</div>
+              <p class="pattern-step__desc">Dashboard view showing the citizen's current application status, tailored supports, and access to the digital assistant. Hero header with personalised greeting. Entry point: "Continue application" CTA on the service card.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">2</div>
+            <div>
+              <div class="pattern-step__title">Before you begin</div>
+              <p class="pattern-step__desc">Pre-application checklist showing all sections, estimated completion time ("approximately 10 minutes"), and data notice. Citizens can see their progress at a glance before committing to the flow.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">3</div>
+            <div>
+              <div class="pattern-step__title">Personal details</div>
+              <p class="pattern-step__desc">Form with pre-filled fields from MyGovID (name, date of birth, address). Citizens review and confirm. Fields are clearly labelled as pre-filled. PPSN is collected here.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">4</div>
+            <div>
+              <div class="pattern-step__title">Employment</div>
+              <p class="pattern-step__desc">Radio group for employment status with conditional employer name field (shown only when "Employed" is selected). Validates on blur before allowing progression.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">5</div>
+            <div>
+              <div class="pattern-step__title">Income</div>
+              <p class="pattern-step__desc">Annual income field with hint text explaining what to include. Multiple income sources can be added. Accepts welfare payments and employment income.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">6</div>
+            <div>
+              <div class="pattern-step__title">Housing requirements</div>
+              <p class="pattern-step__desc">Number of bedrooms required, accessibility requirements, preferred local authority areas. Checkbox group for accessibility needs.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">7</div>
+            <div>
+              <div class="pattern-step__title">Previous housing</div>
+              <p class="pattern-step__desc">Current housing situation (renting, living with family, homeless), previous applications for social housing, and time at current address.</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">8</div>
+            <div>
+              <div class="pattern-step__title">Review and submit</div>
+              <p class="pattern-step__desc">Full summary of all entered information with edit links per section. Final declaration checkbox. Primary CTA: "Submit application".</p>
+            </div>
+          </li>
+          <li class="pattern-step">
+            <div class="pattern-step__num">9</div>
+            <div>
+              <div class="pattern-step__title">Success screen</div>
+              <p class="pattern-step__desc">Confirmation with unique reference number (e.g. SH-2026-00142), next steps ("You will hear from your local authority within 10 working days"), and return to dashboard CTA.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Design decisions</h2>
+
+        <h3>Pre-filling from MyGovID</h3>
+        <p>Where data is available from the citizen's MyGovID profile (name, address, date of birth), pre-fill the relevant fields and indicate the source clearly: "From your MyGovID profile". Allow editing before submission. This reduces friction for citizens who may be completing the form in a stressful situation.</p>
+
+        <h3>Conditional fields</h3>
+        <p>The employer name field appears only when "Employed" is selected from the employment radio group. Conditionally shown fields must be programmatically revealed — not just hidden with CSS — so screen readers announce the new field when it appears.</p>
+
+        <h3>Time estimate</h3>
+        <p>Display a completion estimate on the Before You Begin screen: "Completing your Social Housing application form will take approximately 10 minutes." This helps citizens decide if they have time to complete the form in one session and sets expectations.</p>
+
+        <h3>Save and return</h3>
+        <p>The "Save and return later" secondary button appears on each section screen. Session state is preserved so citizens can resume from where they left off. On return, the Before You Begin screen shows completed sections.</p>
+
+        <h2>Content guidelines</h2>
+        <ul>
+          <li>Page titles use sentence case and describe the section: "Personal details", "Employment", "Income".</li>
+          <li>CTA text is action-oriented: "Continue", "Save and return later", "Submit application".</li>
+          <li>Error messages name the field and state what to enter: "Enter your date of birth in DD/MM/YYYY format".</li>
+          <li>Success copy is warm and reassuring: "Your application has been submitted. You will hear from your local authority within 10 working days."</li>
+          <li>Complex terms are explained inline: "PPSN — Personal Public Service Number. Find it on your payslip or Revenue letter."</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>Citizens applying for social housing may be in crisis situations — dealing with homelessness, bereavement, or financial hardship. Accessibility is not optional here; a failure in the form could mean a citizen cannot access vital support.</div>
+        </div>
+
+        <h2>Accessibility checklist for the full flow</h2>
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Each screen has one <code>&lt;h1&gt;</code> that matches the current step. The page <code>&lt;title&gt;</code> includes the step name and service name: "Employment — Social Housing Application".</span>
+            <span class="criterion">2.4.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>On screen transitions (single-page navigation), focus moves to the new <code>&lt;h1&gt;</code> or a skip target at the top of the new screen content.</span>
+            <span class="criterion">2.4.3 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Conditional fields (employer name) use JavaScript to show/hide, not CSS <code>display:none</code> — and focus moves to the newly revealed field when it appears.</span>
+            <span class="criterion">4.1.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>After failed submission, an error summary appears at the top of the form with focus moved to it. Each error links to the relevant field.</span>
+            <span class="criterion">3.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>All personal data fields have the correct <code>autocomplete</code> attributes: <code>given-name</code>, <code>family-name</code>, <code>bday</code>, <code>postal-code</code>, <code>tel</code>, <code>email</code>.</span>
+            <span class="criterion">1.3.5 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The success screen announces the reference number via an <code>aria-live="polite"</code> region so screen reader users do not miss it.</span>
+            <span class="criterion">4.1.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Session timeout warnings appear in an <code>aria-live="assertive"</code> region with sufficient time for the citizen to extend or save their session (minimum 20 seconds).</span>
+            <span class="criterion">2.2.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>All form fields across every screen meet touch target minimums: text inputs are 48px tall, radio rows are full-width with 44px minimum height.</span>
+            <span class="criterion">2.5.5</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The Before You Begin screen lists all sections and their completion status with both text labels and icons — not colour alone.</span>
+            <span class="criterion">1.4.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The review screen's edit links each include the section name in their accessible label: "Edit personal details", not just "Edit".</span>
+            <span class="criterion">2.4.6 AA</span>
+          </li>
+        </ul>
+
+        <h2>Testing the full flow</h2>
+        <p>Before release, test the complete application flow with:</p>
+        <ul>
+          <li><strong>Keyboard only</strong> — Tab through every screen. Verify focus order, tab trapping on any modals, and that every field and button is reachable.</li>
+          <li><strong>Screen reader (iOS VoiceOver)</strong> — Complete the full form. Verify headings, field labels, error messages, and confirmation are all read correctly.</li>
+          <li><strong>Screen reader (Android TalkBack)</strong> — Repeat the above on Android.</li>
+          <li><strong>200% zoom</strong> — Verify no content overlaps or is clipped at 200% browser zoom.</li>
+          <li><strong>High contrast mode</strong> — Verify the form is usable in Windows High Contrast or macOS Increase Contrast mode.</li>
+        </ul>
+      </div>
+
+      <div id="panel-screens" role="tabpanel" aria-labelledby="tab-screens">
+        <h2>Screen inventory</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Screen</th><th>Route (prototype)</th><th>Key components</th></tr></thead>
+          <tbody>
+            <tr><td>Home</td><td><code>#home</code></td><td>HeroHeader, ServiceCard, ApplicationCard, HelpPanel</td></tr>
+            <tr><td>Before you begin</td><td><code>#before-you-begin</code></td><td>AppHeader, BackLink, StepCard list, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Personal details</td><td><code>#personal-details</code></td><td>AppHeader, BackLink, step counter, FormField ×6, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Employment</td><td><code>#employment</code></td><td>AppHeader, BackLink, step counter, RadioGroup, conditional FormField, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Income</td><td><code>#income</code></td><td>AppHeader, BackLink, step counter, FormField, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Housing requirements</td><td><code>#housing-requirements</code></td><td>AppHeader, BackLink, step counter, RadioGroup, CheckboxGroup, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Previous housing</td><td><code>#previous-housing</code></td><td>AppHeader, BackLink, step counter, RadioGroup, FormField, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Review</td><td><code>#review</code></td><td>AppHeader, BackLink, summary sections with edit links, declaration checkbox, PrimaryButton, HelpPanel</td></tr>
+            <tr><td>Success</td><td><code>#success</code></td><td>AppHeader, reference number, next steps, TertiaryButton (return to dashboard), HelpPanel</td></tr>
+            <tr><td>Profile</td><td><code>#profile</code></td><td>AppHeader, user details, application history, HelpPanel</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Interactive prototype</h2>
+        <p>The full interactive prototype is at <code>ui_kits/social-housing/index.html</code>. It includes 5 screens with working navigation:</p>
+        <ul>
+          <li>Home</li>
+          <li>Before you begin</li>
+          <li>Personal details (with validation)</li>
+          <li>Employment (with conditional field)</li>
+          <li>Success screen</li>
+        </ul>
+
+        <div class="callout callout--success">
+          <span class="material-icons" aria-hidden="true">check_circle</span>
+          <div>Open <code>ui_kits/social-housing/index.html</code> directly in any modern browser. Use the screen list in the left panel to navigate between screens.</div>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next pattern</span>
+        <div class="content-footer__links"><a href="forms.html">Multi-step forms →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

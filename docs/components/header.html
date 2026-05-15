@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    /* Header demos */
+    .app-header { display:flex; align-items:center; justify-content:space-between; padding:0 16px; height:56px; background:#008660; }
+    .app-header__harp { display:flex; align-items:center; gap:8px; color:#fff; font-size:13px; font-weight:700; font-family:'Lato',sans-serif; }
+    .app-header__harp svg { flex-shrink:0; }
+    .app-header__actions { display:flex; align-items:center; gap:8px; }
+    .app-header__icon { color:#fff; background:none; border:none; cursor:pointer; padding:6px; border-radius:50%; width:36px; height:36px; display:flex; align-items:center; justify-content:center; }
+    .app-header__icon .material-icons { font-size:22px; }
+    .app-header__avatar { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.25); display:flex; align-items:center; justify-content:center; cursor:pointer; border:none; }
+
+    /* Hero header */
+    .hero-header { background:#004D44; padding:20px 16px 24px; position:relative; overflow:hidden; }
+    .hero-header__bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+    .hero-header__greeting-label { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); font-family:'Lato',sans-serif; margin-bottom:4px; }
+    .hero-header__greeting { font-size:28px; font-weight:700; color:#fff; font-family:'Lato',sans-serif; line-height:1.2; }
+    .hero-header__sub { font-size:14px; color:rgba(255,255,255,0.7); font-family:'Lato',sans-serif; margin-top:4px; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Header</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Components</li><li aria-current="page">Header</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Header</h1>
+        <p class="page-header__desc">The app header identifies the service as a government product, anchors navigation, and presents key user context.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--component">Component</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Variants</h2>
+
+        <h3>Standard header</h3>
+        <p>Used on all screens except the home screen. Background: <code>#008660</code> (Rich Green). Total height: ~56px visible + 24px status bar = ~80px.</p>
+        <div class="demo demo--mobile">
+          <div class="mobile-frame">
+            <div style="background:#1a1a1a;height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 12px">
+              <span style="color:#fff;font-size:10px;font-family:'Lato',sans-serif">9:41</span>
+              <span style="color:#fff;font-size:10px;font-family:'Lato',sans-serif">●●●</span>
+            </div>
+            <div class="app-header" role="banner">
+              <div class="app-header__harp">
+                <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-label="Irish Government" role="img">
+                  <path d="M9 1 C6 1 4 4 4 8 L4 20 L6 20 L6 8 C6 5 7 3 9 3 C11 3 12 5 12 8 L12 20 L14 20 L14 8 C14 4 12 1 9 1Z" fill="white"/>
+                  <line x1="4" y1="8" x2="12" y2="8" stroke="white" stroke-width="0.8" opacity="0.6"/>
+                  <line x1="4" y1="11" x2="12" y2="11" stroke="white" stroke-width="0.8" opacity="0.6"/>
+                  <line x1="4" y1="14" x2="12" y2="14" stroke="white" stroke-width="0.8" opacity="0.6"/>
+                </svg>
+                Irish Government
+              </div>
+              <div class="app-header__actions">
+                <button class="app-header__icon" aria-label="Notifications"><span class="material-icons">notifications</span></button>
+                <button class="app-header__avatar" aria-label="Profile"><span class="material-icons" style="color:#fff;font-size:18px">person</span></button>
+              </div>
+            </div>
+            <div style="padding:16px;background:#f2f2f2;min-height:80px">
+              <p style="font-size:14px;color:#505A5F;font-family:'Lato',sans-serif">Page content appears here</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Hero header</h3>
+        <p>Used on the home screen only. Background: <code>#004D44</code> with a full-bleed texture overlay at 80% opacity (<code>mix-blend-mode: overlay</code>). Displays a personalised greeting.</p>
+        <div class="demo demo--mobile">
+          <div class="mobile-frame">
+            <div style="background:#1a1a1a;height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 12px">
+              <span style="color:#fff;font-size:10px;font-family:'Lato',sans-serif">9:41</span>
+              <span style="color:#fff;font-size:10px;font-family:'Lato',sans-serif">●●●</span>
+            </div>
+            <div class="hero-header">
+              <div class="hero-header__bar">
+                <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-label="Irish Government" role="img">
+                  <path d="M9 1 C6 1 4 4 4 8 L4 20 L6 20 L6 8 C6 5 7 3 9 3 C11 3 12 5 12 8 L12 20 L14 20 L14 8 C14 4 12 1 9 1Z" fill="white"/>
+                </svg>
+                <div style="display:flex;gap:8px">
+                  <button class="app-header__icon" aria-label="Notifications"><span class="material-icons">notifications</span></button>
+                  <button class="app-header__avatar" aria-label="Profile"><span class="material-icons" style="color:#fff;font-size:18px">person</span></button>
+                </div>
+              </div>
+              <div class="hero-header__greeting-label">DPENDR — Life Events</div>
+              <div class="hero-header__greeting">Good morning, David</div>
+              <div class="hero-header__sub">Supports tailored for you</div>
+            </div>
+            <div style="padding:16px;background:#fff;min-height:60px">
+              <p style="font-size:14px;color:#505A5F;font-family:'Lato',sans-serif">Home screen content</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Header anatomy</h2>
+        <ol class="anatomy__list" style="margin:16px 0">
+          <li><span class="anatomy__num">1</span> Irish Government Harp mark — white SVG on green background</li>
+          <li><span class="anatomy__num">2</span> Page title (standard) or greeting (hero) — white text</li>
+          <li><span class="anatomy__num">3</span> Notification icon — 24px, white, 44×44px tap target</li>
+          <li><span class="anatomy__num">4</span> User avatar / profile — circular, 32px, 44×44px tap target</li>
+          <li><span class="anatomy__num">5</span> DPENDR overline label (hero only) — 10px, wide tracking</li>
+        </ol>
+
+        <h2>When to use</h2>
+        <ul>
+          <li>The <strong>hero header</strong> appears on the home/dashboard screen only. It communicates the user's identity and the service name prominently.</li>
+          <li>The <strong>standard header</strong> appears on all other screens — form pages, confirmation screens, profile pages.</li>
+          <li>The Harp mark must appear in every header. It signals to citizens that they are using an official government service.</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Wrap the header in <code>&lt;header role="banner"&gt;</code>. This provides the ARIA landmark used by screen reader users to skip or navigate to the header.</span>
+            <span class="criterion">1.3.6 AAA / best practice</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The Harp mark must be wrapped in a link to the home screen: <code>&lt;a href="/"&gt;</code> with <code>aria-label="Irish Government — home"</code>.</span>
+            <span class="criterion">2.4.4 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>A skip link (<code>&lt;a href="#main-content"&gt;Skip to main content&lt;/a&gt;</code>) must be the first focusable element in the document — before the header.</span>
+            <span class="criterion">2.4.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The notification icon button must have <code>aria-label="Notifications"</code>. If there is a badge count, include it in the label: <code>aria-label="Notifications, 3 unread"</code>.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The profile/avatar button must have <code>aria-label="Profile menu"</code> or equivalent.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>White text on <code>#008660</code> header achieves 4.6:1 contrast — passing AA. White on <code>#004D44</code> hero achieves 10.7:1.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The hero overlay texture is decorative. Apply it as a CSS <code>background-image</code> with <code>mix-blend-mode: overlay</code>, not as an <code>&lt;img&gt;</code> element.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Standard header</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;!-- Skip link: must come first in DOM --&gt;
+&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+&lt;header role="banner"&gt;
+  &lt;a href="/" aria-label="Irish Government — home"&gt;
+    &lt;!-- Harp SVG --&gt;
+    &lt;span&gt;Irish Government&lt;/span&gt;
+  &lt;/a&gt;
+
+  &lt;nav aria-label="Utility"&gt;
+    &lt;button type="button" aria-label="Notifications, 3 unread"&gt;
+      &lt;span class="material-icons" aria-hidden="true"&gt;notifications&lt;/span&gt;
+      &lt;span class="badge" aria-hidden="true"&gt;3&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" aria-label="Profile menu"&gt;
+      &lt;span class="material-icons" aria-hidden="true"&gt;person&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main id="main-content"&gt;
+  &lt;h1&gt;Page title&lt;/h1&gt;
+  &lt;!-- content --&gt;
+&lt;/main&gt;</code></pre>
+        </div>
+
+        <h2>Hero header</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.hero-header {
+  background: var(--color-bg-hero);  /* #004D44 */
+  padding: 20px var(--page-margin-x) 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative texture overlay */
+.hero-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../assets/hero-overlay.png') center / cover;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.hero-header__greeting {
+  font-size: var(--text-h1);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-on-dark);
+  position: relative;  /* above pseudo-element */
+}
+
+.hero-header__overline {
+  font-size: var(--text-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-muted);
+}</code></pre>
+        </div>
+
+        <h2>Skip link</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: #FFBF47;
+  color: #0B0C0C;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 8px;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next component</span>
+        <div class="content-footer__links"><a href="help-panel.html">Help panel →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

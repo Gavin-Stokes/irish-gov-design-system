@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 20px 24px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .label { font-size: 14px; font-weight: 700; color: #0B0C0C; }
+  .hint  { font-size: 12px; color: #505A5F; }
+  input, select, textarea {
+    font-family: 'Lato', sans-serif; font-size: 16px;
+    border: 1px solid #888; border-radius: 0;
+    padding: 10px 12px; color: #0B0C0C; background: #fff;
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { outline: 3px solid #FFBF47; outline-offset: 0; border-color: #0B0C0C; }
+  .input-error { border-color: #d4351c; }
+  .error-msg  { font-size: 14px; color: #d4351c; display: flex; align-items: center; gap: 4px; }
+  .input-success { border-color: #008660; }
+  .success-msg { font-size: 14px; color: #008660; }
+  .radio-group { display: flex; flex-direction: column; gap: 8px; }
+  .radio-opt  { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 16px; }
+  .radio-opt input[type="radio"] { width: 20px; height: 20px; accent-color: #004D44; }
+  .check-opt  { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 16px; }
+  .check-opt input[type="checkbox"] { width: 20px; height: 20px; accent-color: #004D44; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin: 16px 0 10px; }
+  .section-label:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+  <div class="section-label">Text Inputs</div>
+  <div class="cols">
+    <div class="field">
+      <label class="label">First name</label>
+      <div class="hint">As it appears on your passport or driving licence</div>
+      <input type="text" placeholder="e.g. David">
+    </div>
+    <div class="field">
+      <label class="label">PPSN <span style="color:#888;font-weight:400">(optional)</span></label>
+      <input type="text" value="1234567T" class="input-success">
+      <div class="success-msg">✓ Pre-filled from MyGovID</div>
+    </div>
+    <div class="field">
+      <label class="label">Email address</label>
+      <input type="email" value="invalid-email" class="input-error">
+      <div class="error-msg"><span class="material-icons" style="font-size:16px">error</span> Enter a valid email address</div>
+    </div>
+  </div>
+
+  <div class="section-label">Select / Dropdown</div>
+  <div class="cols">
+    <div class="field">
+      <label class="label">Current housing type</label>
+      <select>
+        <option value="">Select an option</option>
+        <option>Privately rented</option>
+        <option>Owner occupied</option>
+        <option>Social housing</option>
+        <option>Living with family</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="label">County</label>
+      <select>
+        <option>Dublin</option>
+        <option>Cork</option>
+        <option>Galway</option>
+        <option>Limerick</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="label">Date of birth</label>
+      <input type="date" value="1985-03-15">
+    </div>
+  </div>
+
+  <div class="section-label">Radio &amp; Checkbox</div>
+  <div class="cols">
+    <div class="field">
+      <label class="label">Employment status</label>
+      <div class="radio-group" style="margin-top:4px">
+        <label class="radio-opt"><input type="radio" name="emp" checked> Employed full-time</label>
+        <label class="radio-opt"><input type="radio" name="emp"> Employed part-time</label>
+        <label class="radio-opt"><input type="radio" name="emp"> Unemployed</label>
+        <label class="radio-opt"><input type="radio" name="emp"> Self-employed</label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">I confirm that</label>
+      <div class="radio-group" style="margin-top:4px">
+        <label class="check-opt"><input type="checkbox" checked> The information I have provided is correct</label>
+        <label class="check-opt"><input type="checkbox"> I have read the data privacy notice</label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Additional information</label>
+      <textarea rows="4" placeholder="Enter any additional details here..."></textarea>
+    </div>
+  </div>
+</body>
+</html>

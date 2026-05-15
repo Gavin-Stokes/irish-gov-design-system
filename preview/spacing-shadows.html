@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #F5F5F5; padding: 24px; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+  .item { display: flex; flex-direction: column; gap: 10px; }
+  .box { width: 140px; height: 72px; border-radius: 8px; background: white; display: flex; align-items: center; justify-content: center; }
+  .label { font-size: 10px; font-weight: 700; color: #505A5F; letter-spacing: 0.05em; text-transform: uppercase; }
+  .value { font-size: 9px; color: #aaa; font-family: monospace; max-width: 140px; word-break: break-all; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item">
+      <div class="box" style="box-shadow: none; border: 1px solid #e0e0e0;"></div>
+      <div class="label">Flat / None</div>
+      <div class="value">No shadow</div>
+    </div>
+    <div class="item">
+      <div class="box" style="box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.05);"></div>
+      <div class="label">Ambient</div>
+      <div class="value">0 2px 8px rgba(0,0,0,0.05)</div>
+    </div>
+    <div class="item">
+      <div class="box" style="box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);"></div>
+      <div class="label">Card</div>
+      <div class="value">0 4px 4px rgba(0,0,0,0.25)</div>
+    </div>
+    <div class="item">
+      <div class="box" style="box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.25);"></div>
+      <div class="label">Chat / Modal</div>
+      <div class="value">0 4px 14px rgba(0,0,0,0.25)</div>
+    </div>
+  </div>
+</body>
+</html>

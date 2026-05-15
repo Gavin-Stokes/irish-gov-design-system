@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Field — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    .form-group { display:flex; flex-direction:column; gap:6px; max-width:360px; }
+    .form-label { font-size:16px; font-weight:700; color:#0B0C0C; font-family:'Lato',sans-serif; }
+    .form-hint  { font-size:14px; color:#505A5F; font-family:'Lato',sans-serif; }
+    .form-input { width:100%; padding:12px 14px; border:1px solid #888888; border-radius:4px; font-size:16px; font-family:'Lato',sans-serif; background:#fff; min-height:48px; }
+    .form-input:focus { outline:3px solid #FFBF47; outline-offset:2px; border-color:#004D44; }
+    .form-input--error { border:2px solid #d4351c; }
+    .form-error { display:flex; align-items:center; gap:6px; color:#d4351c; font-size:14px; font-weight:700; font-family:'Lato',sans-serif; }
+    .form-error .material-icons { font-size:18px; }
+    .radio-group { display:flex; flex-direction:column; gap:8px; }
+    .radio-label { display:flex; align-items:center; gap:12px; padding:12px 16px; border:1px solid #e0e0e0; border-radius:4px; cursor:pointer; font-size:16px; font-family:'Lato',sans-serif; min-height:48px; }
+    .radio-label:hover { background:#f0f4f3; }
+    .radio-label input { width:20px; height:20px; flex-shrink:0; accent-color:#004D44; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Form field</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Components</li><li aria-current="page">Form field</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Form field</h1>
+        <p class="page-header__desc">Form fields collect information from citizens. Every field must have a visible label, hint text where needed, and clear error messages.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--component">Component</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>States</h2>
+
+        <h3>Default</h3>
+        <div class="demo">
+          <div class="form-group">
+            <label class="form-label" for="demo-default">First name</label>
+            <span class="form-hint" id="demo-default-hint">As it appears on your passport or driver's licence</span>
+            <input class="form-input" type="text" id="demo-default" aria-describedby="demo-default-hint" autocomplete="given-name">
+          </div>
+        </div>
+
+        <h3>Filled (pre-populated from MyGovID)</h3>
+        <div class="demo">
+          <div class="form-group">
+            <label class="form-label" for="demo-filled">First name <span style="font-size:12px;font-weight:400;color:#505A5F">— from MyGovID</span></label>
+            <input class="form-input" type="text" id="demo-filled" value="David" autocomplete="given-name">
+          </div>
+        </div>
+
+        <h3>Error</h3>
+        <div class="demo">
+          <div class="form-group">
+            <label class="form-label" for="demo-error">Date of birth</label>
+            <div class="form-error" id="demo-error-msg" role="alert">
+              <span class="material-icons" aria-hidden="true">error</span>
+              Enter a valid date of birth
+            </div>
+            <input class="form-input form-input--error" type="text" id="demo-error" aria-describedby="demo-error-msg" aria-invalid="true" value="32/13/1990">
+          </div>
+        </div>
+
+        <h3>Radio group</h3>
+        <div class="demo">
+          <fieldset style="border:none;padding:0;max-width:360px">
+            <legend class="form-label" style="margin-bottom:8px">What is your current employment status?</legend>
+            <div class="radio-group" role="group">
+              <label class="radio-label"><input type="radio" name="employ" value="employed"> Employed</label>
+              <label class="radio-label"><input type="radio" name="employ" value="self"> Self-employed</label>
+              <label class="radio-label"><input type="radio" name="employ" value="unemployed"> Unemployed</label>
+              <label class="radio-label"><input type="radio" name="employ" value="other"> Other</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <h2>Guidelines</h2>
+        <ul>
+          <li>Label every field visibly — never use placeholder text as a substitute for a label.</li>
+          <li>Position labels above fields, not beside them — this works better at mobile widths and is clearer for screen reader users.</li>
+          <li>Provide hint text for fields where the expected format may not be obvious (e.g. date format, PPSN format).</li>
+          <li>Pre-fill fields from MyGovID where available and clearly indicate the source.</li>
+          <li>Validate on blur (when the user leaves the field), not on every keystroke.</li>
+          <li>Group related fields with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>.</li>
+        </ul>
+
+        <div class="do-dont-grid">
+          <div class="do-dont-card do-dont-card--do">
+            <div class="do-dont-card__demo" style="flex-direction:column;align-items:flex-start;padding:16px;gap:6px">
+              <label style="font-size:14px;font-weight:700;font-family:'Lato',sans-serif" for="dd-good">First name</label>
+              <input style="width:100%;padding:10px 12px;border:1px solid #888;border-radius:4px;font-size:14px;font-family:'Lato',sans-serif" type="text" id="dd-good" placeholder="">
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">check_circle</span>
+              <div class="do-dont-card__text"><strong>Do</strong> use a visible label above every input field.</div>
+            </div>
+          </div>
+          <div class="do-dont-card do-dont-card--dont">
+            <div class="do-dont-card__demo" style="flex-direction:column;align-items:flex-start;padding:16px;gap:6px">
+              <input style="width:100%;padding:10px 12px;border:1px solid #888;border-radius:4px;font-size:14px;font-family:'Lato',sans-serif;color:#888" type="text" placeholder="First name">
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">cancel</span>
+              <div class="do-dont-card__text"><strong>Don't</strong> use placeholder text as the only label — it disappears on focus.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>The Social Housing Application form is the core citizen journey. Every accessibility failure here is a barrier to someone accessing housing support.</div>
+        </div>
+
+        <h2>Accessibility checklist</h2>
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Every input must have a programmatically associated <code>&lt;label&gt;</code> via matching <code>for</code> / <code>id</code> attributes. Visual proximity alone is not sufficient.</span>
+            <span class="criterion">1.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Hint text and error messages must be linked to the input via <code>aria-describedby</code>. Multiple IDs can be space-separated: <code>aria-describedby="hint error"</code>.</span>
+            <span class="criterion">1.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Error messages must include <code>aria-invalid="true"</code> on the input. Use <code>role="alert"</code> on the error message to announce it immediately.</span>
+            <span class="criterion">4.1.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>After a failed form submission, move focus to the error summary at the top, or to the first erroneous field. Users must not have to hunt for errors.</span>
+            <span class="criterion">3.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Use <code>autocomplete</code> attributes on personal data fields: <code>given-name</code>, <code>family-name</code>, <code>email</code>, <code>tel</code>, <code>bday</code>. This aids users with cognitive disabilities and motor impairments.</span>
+            <span class="criterion">1.3.5 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Radio groups and checkbox groups must be wrapped in <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code>. The legend is the group question; individual options are labels.</span>
+            <span class="criterion">1.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Radio and checkbox tap targets must be full-width rows with 44px minimum height — not just the control itself.</span>
+            <span class="criterion">2.5.5</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Do not use <code>disabled</code> on form fields unless the field is truly unavailable for interaction. Use <code>readonly</code> when content should be visible but not editable.</span>
+            <span class="criterion">4.1.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Input borders must achieve 3:1 contrast against adjacent background. The default <code>#888888</code> border on a white background achieves approximately 3.5:1 — acceptable but borderline. In error state, use <code>#d4351c</code>.</span>
+            <span class="criterion">1.4.11 AA</span>
+          </li>
+        </ul>
+
+        <h2>Error summary pattern</h2>
+        <p>When a form is submitted with errors, show a summary at the top of the form and move focus to it.</p>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;div class="error-summary" role="alert" tabindex="-1"&gt;
+  &lt;h2&gt;There is a problem&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#date-of-birth"&gt;Enter a valid date of birth&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#ppsn"&gt;Enter your PPSN&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  // After failed submission
+  const summary = document.querySelector('.error-summary');
+  summary.focus();
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Text input</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="first-name"&gt;First name&lt;/label&gt;
+  &lt;span class="form-hint" id="first-name-hint"&gt;
+    As it appears on your passport or driver's licence
+  &lt;/span&gt;
+  &lt;input
+    class="form-input"
+    type="text"
+    id="first-name"
+    name="firstName"
+    autocomplete="given-name"
+    aria-required="true"
+    aria-describedby="first-name-hint"
+  &gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2>Error state</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;div class="form-group"&gt;
+  &lt;label class="form-label" for="dob"&gt;Date of birth&lt;/label&gt;
+  &lt;span class="form-error" id="dob-error" role="alert"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;error&lt;/span&gt;
+    Enter a valid date of birth
+  &lt;/span&gt;
+  &lt;input
+    class="form-input form-input--error"
+    type="text"
+    id="dob"
+    aria-invalid="true"
+    aria-describedby="dob-error"
+  &gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2>Radio group</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;fieldset&gt;
+  &lt;legend class="form-label"&gt;
+    What is your current employment status?
+  &lt;/legend&gt;
+  &lt;div class="radio-group"&gt;
+    &lt;label class="radio-label"&gt;
+      &lt;input type="radio" name="employment" value="employed"&gt;
+      Employed
+    &lt;/label&gt;
+    &lt;label class="radio-label"&gt;
+      &lt;input type="radio" name="employment" value="self-employed"&gt;
+      Self-employed
+    &lt;/label&gt;
+    &lt;label class="radio-label"&gt;
+      &lt;input type="radio" name="employment" value="unemployed"&gt;
+      Unemployed
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+        </div>
+
+        <h2>CSS</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: var(--text-body);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+}
+
+.form-hint {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-btn);
+  font-size: var(--text-body);
+  font-family: var(--font-primary);
+  min-height: var(--btn-height); /* 48px */
+}
+
+.form-input:focus-visible {
+  outline: 3px solid #FFBF47;
+  outline-offset: 2px;
+  border-color: var(--color-green-900);
+}
+
+.form-input--error {
+  border: 2px solid #d4351c;
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #d4351c;
+  font-size: var(--text-small);
+  font-weight: var(--fw-bold);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  min-height: 48px;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next component</span>
+        <div class="content-footer__links"><a href="header.html">Header →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

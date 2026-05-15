@@ -1,0 +1,281 @@
+/**
+ * Irish Government Life Events — Design System
+ * CSS Custom Properties: Colors, Typography, Spacing, Radius, Shadow
+ * Source: Social Housing Part 2 DEPR Figma file (Deloitte, 2022)
+ */
+
+/* ─────────────────────────────────────────────
+   COLOR TOKENS — BASE PALETTE
+   ───────────────────────────────────────────── */
+:root {
+  /* Primary Greens */
+  --color-green-900: #004D44;   /* Deep Forest — primary brand, home hero BG */
+  --color-green-800: #008660;   /* Rich Green — header bar, primary CTA */
+  --color-green-750: #00875F;   /* Action Green — button fills */
+  --color-green-700: #028072;   /* Mid Teal — accent */
+  --color-green-600: #008660;   /* Alias for header green */
+  --color-green-500: #4DA373;   /* Mid accent green */
+  --color-green-400: #95D1B0;   /* Light accent */
+  --color-green-300: #6DD7C0;   /* Seafoam teal */
+  --color-green-200: #9AE1DA;   /* Pale teal — illustration fill */
+  --color-green-150: #BFE7E4;   /* Light teal card tint */
+  --color-green-100: #D5EEDB;   /* Pale mint — soft tints */
+  --color-green-75:  #D5EBDF;   /* Subtle fill */
+  --color-green-50:  #EAF4F5;   /* Card backgrounds — most common */
+  --color-green-25:  #D8E7B9;   /* Warm green tint */
+
+  /* Warm Neutrals */
+  --color-warm-50:   #F6F4EF;   /* Warm off-white page background */
+
+  /* Neutrals */
+  --color-neutral-900: #0B0C0C; /* Near-black — primary body text */
+  --color-neutral-850: #263238; /* Dark slate — secondary text */
+  --color-neutral-800: #262626; /* Dark text */
+  --color-neutral-700: #455A64; /* Slate grey */
+  --color-neutral-600: #585858; /* De-emphasised text */
+  --color-neutral-550: #505A5F; /* Supporting/secondary text */
+  --color-neutral-500: #888888; /* Mid grey — borders, strokes */
+  --color-neutral-400: #808080; /* Standard grey */
+  --color-neutral-300: #CCCCCC; /* Divider grey */
+  --color-neutral-200: #E0E0E0; /* Light dividers, card BG */
+  --color-neutral-150: #EBEBEB; /* Subtle divider */
+  --color-neutral-100: #F0F0F0; /* Inner card background */
+  --color-neutral-75:  #F5F5F5; /* Page background alt */
+  --color-neutral-50:  #FAFAFA; /* Near-white page BG */
+  --color-neutral-25:  #F2F2F2; /* Form page background */
+  --color-white:       #FFFFFF;
+
+  /* Warm Accents */
+  --color-salmon:  #EB996E;   /* Persona / illustration warm tone */
+  --color-peach:   #FFBE9D;   /* Illustration fill */
+  --color-yellow:  #E3DE83;   /* Harp icon on dark header */
+
+  /* Status / Semantic */
+  --color-success:  #19B729;  /* Online indicator green dot */
+  --color-black:    #000000;
+
+  /* ─────────────────────────────────────────────
+     COLOR TOKENS — SEMANTIC
+     ───────────────────────────────────────────── */
+  --color-bg-page:         var(--color-neutral-25);     /* Form/detail page background */
+  --color-bg-page-home:    var(--color-white);           /* Home page background */
+  --color-bg-hero:         var(--color-green-900);       /* Home hero header */
+  --color-bg-header:       var(--color-green-800);       /* Standard header bar */
+  --color-bg-card:         var(--color-green-50);        /* Standard card background */
+  --color-bg-card-inner:   var(--color-neutral-100);     /* Inner/muted card */
+  --color-bg-help:         var(--color-green-900);       /* Need Help panel */
+  --color-bg-title-band:   var(--color-neutral-100);     /* Title band opacity 0.9 */
+
+  --color-text-primary:    var(--color-neutral-900);     /* Main body text */
+  --color-text-heading:    var(--color-green-900);       /* Section headings on white */
+  --color-text-heading-dark: var(--color-neutral-900);   /* Page title (on light bg) */
+  --color-text-secondary:  var(--color-neutral-550);     /* Supporting text */
+  --color-text-on-dark:    var(--color-white);           /* Text on green hero */
+  --color-text-on-dark-muted: rgba(255,255,255,0.5);    /* Subdued text on dark */
+  --color-text-help:       #EAF4F5;                      /* Text in help panel */
+  --color-text-link:       var(--color-green-900);       /* Back links */
+
+  --color-btn-primary-bg:    var(--color-green-750);    /* Primary button */
+  --color-btn-primary-text:  var(--color-white);
+  --color-btn-primary-alt-bg: var(--color-green-900);   /* Alt primary (deep green) */
+
+  --color-border-default:  var(--color-neutral-500);     /* Input border */
+  --color-border-light:    var(--color-neutral-200);     /* Divider */
+  --color-border-on-dark:  rgba(255,255,255,0.3);        /* Divider on green panel */
+
+  /* ─────────────────────────────────────────────
+     TYPOGRAPHY
+     ───────────────────────────────────────────── */
+  --font-primary:  'Lato', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+  --font-accent:   'La Belle Aurore', cursive;  /* Journey map annotations only */
+
+  /* Font weights */
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+  --fw-black:      900;
+
+  /* Type scale */
+  --text-hero:     2rem;      /* 32px — welcome heading */
+  --text-h1:       1.75rem;   /* 28px — page title */
+  --text-h2:       1.5rem;    /* 24px — section/card heading */
+  --text-h3:       1.25rem;   /* 20px — sub-section */
+  --text-h4:       1.125rem;  /* 18px — body large / subtitle */
+  --text-body:     1rem;      /* 16px — main body */
+  --text-small:    0.875rem;  /* 14px — supporting/metadata */
+  --text-caption:  0.75rem;   /* 12px — hints, helper text */
+  --text-overline: 0.625rem;  /* 10px — overline, tracking labels */
+
+  /* Line heights */
+  --lh-heading: 1.25;    /* 28px/32px headings */
+  --lh-body:    1.5;     /* 24px at 16px */
+  --lh-tight:   1.1;     /* Display/hero text */
+
+  /* Letter spacing */
+  --ls-body:     0.005em;
+  --ls-overline: 0.2em;   /* Wide tracking for overlines */
+
+  /* Semantic type roles */
+  --type-page-title-size:   var(--text-h1);
+  --type-page-title-weight: var(--fw-bold);
+  --type-page-title-color:  var(--color-text-heading-dark);
+
+  --type-section-heading-size:   var(--text-h2);
+  --type-section-heading-weight: var(--fw-bold);
+  --type-section-heading-color:  var(--color-text-heading);
+
+  --type-body-size:    var(--text-body);
+  --type-body-weight:  var(--fw-regular);
+  --type-body-color:   var(--color-text-primary);
+
+  --type-support-size:   var(--text-small);
+  --type-support-weight: var(--fw-regular);
+  --type-support-color:  var(--color-text-secondary);
+
+  --type-btn-size:    var(--text-body);
+  --type-btn-weight:  var(--fw-regular);
+
+  /* ─────────────────────────────────────────────
+     SPACING
+     ───────────────────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-7:   28px;
+  --space-8:   32px;
+  --space-9:   40px;
+  --space-10:  48px;
+  --space-11:  50px;
+
+  --page-margin-x: var(--space-4);   /* 16px horizontal page margin */
+  --card-padding:  var(--space-5);   /* 20px card inner padding */
+  --section-gap:   var(--space-11);  /* 50px between major sections */
+  --content-gap:   var(--space-6);   /* 24px between content blocks */
+  --btn-pad-y:     var(--space-3);   /* 12px button vertical padding */
+  --btn-pad-x:     var(--space-4);   /* 16px button horizontal padding */
+
+  /* ─────────────────────────────────────────────
+     BORDER RADIUS
+     ───────────────────────────────────────────── */
+  --radius-btn:    4px;    /* Buttons */
+  --radius-card:   8px;    /* Standard cards */
+  --radius-card-lg: 10px;  /* Larger cards / screen frame */
+  --radius-pill:   24px;   /* Chips, pills, date badges */
+  --radius-circle: 50%;    /* Avatar / icon circle */
+
+  /* ─────────────────────────────────────────────
+     SHADOWS / ELEVATION
+     ───────────────────────────────────────────── */
+  --shadow-card:    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-ambient: 0px 2px 8px 0px rgba(0, 0, 0, 0.05);
+  --shadow-chat:    0px 4px 14px 0px rgba(0, 0, 0, 0.25);
+
+  /* ─────────────────────────────────────────────
+     COMPONENT SIZES
+     ───────────────────────────────────────────── */
+  --header-height:       100px;   /* Standard app header */
+  --header-status-bar:   24px;
+  --header-nav-height:   67.5px;
+  --header-accent-strip: 8px;
+  --btn-height-lg:       58px;    /* Full-width primary CTA */
+  --btn-height:          48px;    /* Standard button */
+  --icon-size:           24px;
+  --icon-size-lg:        32px;
+  --icon-size-xl:        48px;
+  --mobile-width:        390px;   /* Design canvas width */
+}
+
+/* ─────────────────────────────────────────────
+   BASE RESET & BODY
+   ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─────────────────────────────────────────────
+   SEMANTIC TYPE CLASSES
+   ───────────────────────────────────────────── */
+h1, .h1 {
+  font-family: var(--font-primary);
+  font-size: var(--text-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--color-text-heading-dark);
+}
+
+h2, .h2 {
+  font-family: var(--font-primary);
+  font-size: var(--text-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--color-text-heading);
+}
+
+h3, .h3 {
+  font-family: var(--font-primary);
+  font-size: var(--text-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--color-text-heading);
+}
+
+p, .body {
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-text-primary);
+}
+
+.supporting {
+  font-family: var(--font-primary);
+  font-size: var(--text-small);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-secondary);
+}
+
+.caption {
+  font-family: var(--font-primary);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-secondary);
+}
+
+.overline {
+  font-family: var(--font-primary);
+  font-size: var(--text-overline);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ─────────────────────────────────────────────
+   UTILITY CLASSES
+   ───────────────────────────────────────────── */
+.text-on-dark   { color: var(--color-text-on-dark); }
+.text-heading   { color: var(--color-text-heading); }
+.text-secondary { color: var(--color-text-secondary); }
+.bg-hero        { background-color: var(--color-bg-hero); }
+.bg-header      { background-color: var(--color-bg-header); }
+.bg-card        { background-color: var(--color-bg-card); }
+.bg-help        { background-color: var(--color-bg-help); }

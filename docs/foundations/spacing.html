@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacing — Irish Government Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Spacing</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Foundations</li><li aria-current="page">Spacing</li></ol></nav>
+      <div class="page-header">
+        <h1>Spacing</h1>
+        <p class="page-header__desc">An 8px base unit creates a consistent rhythm across all layouts, components, and screens.</p>
+        <div class="page-header__tags"><span class="tag tag--foundation">Foundation</span></div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-tokens" id="tab-tokens">Tokens</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Spacing scale</h2>
+        <p>All spacing values are multiples of 4px, anchored to an 8px base. Use named tokens, not raw pixel values, in component code.</p>
+
+        <table class="spacing-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Visual</th><th>Common use</th></tr></thead>
+          <tbody>
+            <tr><td><code>--space-1</code></td><td>4px</td><td><span class="spacing-bar" style="width:4px"></span></td><td>Tight inline gaps</td></tr>
+            <tr><td><code>--space-2</code></td><td>8px</td><td><span class="spacing-bar" style="width:8px"></span></td><td>Icon-to-label gaps, small padding</td></tr>
+            <tr><td><code>--space-3</code></td><td>12px</td><td><span class="spacing-bar" style="width:12px"></span></td><td>Button vertical padding</td></tr>
+            <tr><td><code>--space-4</code></td><td>16px</td><td><span class="spacing-bar" style="width:16px"></span></td><td>Page horizontal margin; button horizontal padding</td></tr>
+            <tr><td><code>--space-5</code></td><td>20px</td><td><span class="spacing-bar" style="width:20px"></span></td><td>Card inner padding</td></tr>
+            <tr><td><code>--space-6</code></td><td>24px</td><td><span class="spacing-bar" style="width:24px"></span></td><td>Content block gaps</td></tr>
+            <tr><td><code>--space-7</code></td><td>28px</td><td><span class="spacing-bar" style="width:28px"></span></td><td>—</td></tr>
+            <tr><td><code>--space-8</code></td><td>32px</td><td><span class="spacing-bar" style="width:32px"></span></td><td>Section headers</td></tr>
+            <tr><td><code>--space-9</code></td><td>40px</td><td><span class="spacing-bar" style="width:40px"></span></td><td>—</td></tr>
+            <tr><td><code>--space-10</code></td><td>48px</td><td><span class="spacing-bar" style="width:48px"></span></td><td>—</td></tr>
+            <tr><td><code>--space-11</code></td><td>50px</td><td><span class="spacing-bar" style="width:50px"></span></td><td>Between major page sections</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Named layout tokens</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td><code>--page-margin-x</code></td><td>16px</td><td>Left/right page margin on 390px canvas</td></tr>
+            <tr><td><code>--card-padding</code></td><td>20px</td><td>Card inner padding, all four sides</td></tr>
+            <tr><td><code>--section-gap</code></td><td>50px</td><td>Between major content sections</td></tr>
+            <tr><td><code>--content-gap</code></td><td>24px</td><td>Between content blocks within a section</td></tr>
+            <tr><td><code>--btn-pad-y</code></td><td>12px</td><td>Button top/bottom padding</td></tr>
+            <tr><td><code>--btn-pad-x</code></td><td>16px</td><td>Button left/right padding</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Border radius</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Applied to</th></tr></thead>
+          <tbody>
+            <tr><td><code>--radius-btn</code></td><td>4px</td><td>All button variants</td></tr>
+            <tr><td><code>--radius-card</code></td><td>8px</td><td>Standard cards</td></tr>
+            <tr><td><code>--radius-card-lg</code></td><td>10px</td><td>Large cards, screen frames</td></tr>
+            <tr><td><code>--radius-pill</code></td><td>24px</td><td>Chips, pills, date status badges</td></tr>
+            <tr><td><code>--radius-circle</code></td><td>50%</td><td>Avatar and icon circles</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Elevation / shadows</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Used on</th></tr></thead>
+          <tbody>
+            <tr><td><code>--shadow-card</code></td><td>0px 4px 4px 0px rgba(0,0,0,0.25)</td><td>Standard card elevation</td></tr>
+            <tr><td><code>--shadow-ambient</code></td><td>0px 2px 8px 0px rgba(0,0,0,0.05)</td><td>Page-level ambient</td></tr>
+            <tr><td><code>--shadow-chat</code></td><td>0px 4px 14px 0px rgba(0,0,0,0.25)</td><td>Help panel / floating elements</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>Cards use <strong>shadow only for elevation</strong> — no outer borders. Never add a border to a card that already has <code>--shadow-card</code>.</div>
+        </div>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <h2>Spacing and accessibility</h2>
+
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>All interactive elements must have a minimum touch target of <strong>44×44px</strong>. Standard buttons are 48px tall; large CTAs are 58px. Never reduce button height below 44px.</span>
+            <span class="criterion">2.5.5 AAA / best practice</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Adjacent tap targets must have at least <strong>8px of space</strong> between them to prevent accidental mis-taps, particularly for users with motor impairments.</span>
+            <span class="criterion">2.5.8 AA (WCAG 2.2)</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Radio button and checkbox rows must have a <strong>full-width tap area</strong>, not just the control itself. Extend the touch area to at least 44px height using padding on the label.</span>
+            <span class="criterion">2.5.5</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Icon-only buttons (notification bell, avatar) must have a minimum 44×44px tap area even when the visible icon is 24px. Use padding to expand the target.</span>
+            <span class="criterion">2.5.5</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Paragraph spacing must be at least 2× the font size. Line height must be at least 1.5× the font size. These values meet WCAG 1.4.12 text spacing requirements.</span>
+            <span class="criterion">1.4.12 AA</span>
+          </li>
+        </ul>
+
+        <h2>Touch target examples</h2>
+        <div class="demo demo--centered" style="gap:24px;flex-direction:column">
+          <div>
+            <div class="demo__label">Primary button — 58px height ✓</div>
+            <button class="btn btn--primary btn--lg" style="min-width:280px">Apply now <span class="material-icons">arrow_forward</span></button>
+          </div>
+          <div>
+            <div class="demo__label">Standard button — 48px height ✓</div>
+            <button class="btn btn--primary" style="min-width:280px">Continue <span class="material-icons">arrow_forward</span></button>
+          </div>
+          <div>
+            <div class="demo__label">Full-width radio row — 44px min height ✓</div>
+            <label style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #e0e0e0;border-radius:4px;cursor:pointer;width:280px;min-height:44px">
+              <input type="radio" name="demo" style="width:20px;height:20px;flex-shrink:0"> Employed
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens">
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>/* Spacing scale */
+--space-1:   4px;
+--space-2:   8px;
+--space-3:   12px;
+--space-4:   16px;
+--space-5:   20px;
+--space-6:   24px;
+--space-7:   28px;
+--space-8:   32px;
+--space-9:   40px;
+--space-10:  48px;
+--space-11:  50px;
+
+/* Named layout tokens */
+--page-margin-x: var(--space-4);   /* 16px */
+--card-padding:  var(--space-5);   /* 20px */
+--section-gap:   var(--space-11);  /* 50px */
+--content-gap:   var(--space-6);   /* 24px */
+--btn-pad-y:     var(--space-3);   /* 12px */
+--btn-pad-x:     var(--space-4);   /* 16px */
+
+/* Border radius */
+--radius-btn:     4px;
+--radius-card:    8px;
+--radius-card-lg: 10px;
+--radius-pill:    24px;
+--radius-circle:  50%;
+
+/* Shadows */
+--shadow-card:    0px 4px 4px 0px rgba(0,0,0,0.25);
+--shadow-ambient: 0px 2px 8px 0px rgba(0,0,0,0.05);
+--shadow-chat:    0px 4px 14px 0px rgba(0,0,0,0.25);
+
+/* Component sizes */
+--header-height:   100px;
+--btn-height-lg:   58px;
+--btn-height:      48px;
+--icon-size:       24px;
+--mobile-width:    390px;</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Iconography</span>
+        <div class="content-footer__links"><a href="iconography.html">Iconography →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

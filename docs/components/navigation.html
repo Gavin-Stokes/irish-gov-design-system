@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Navigation</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Components</li><li aria-current="page">Navigation</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Navigation</h1>
+        <p class="page-header__desc">Navigation patterns guide citizens between screens — back links for step-by-step flows, bottom navigation for top-level switching.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--component">Component</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Back link</h2>
+        <p>The primary navigation pattern within the application flow. Appears above the page <code>&lt;h1&gt;</code>. Text always names the destination screen — never "Back".</p>
+        <div class="demo demo--column" style="gap:12px">
+          <a href="#" class="back-link"><span class="material-icons" aria-hidden="true">chevron_left</span><span class="back-link__text"> Home</span></a>
+          <a href="#" class="back-link"><span class="material-icons" aria-hidden="true">chevron_left</span><span class="back-link__text"> Personal details</span></a>
+          <a href="#" class="back-link"><span class="material-icons" aria-hidden="true">chevron_left</span><span class="back-link__text"> Before you begin</span></a>
+        </div>
+
+        <div class="do-dont-grid">
+          <div class="do-dont-card do-dont-card--do">
+            <div class="do-dont-card__demo">
+              <a href="#" class="back-link"><span class="material-icons" aria-hidden="true">chevron_left</span><span class="back-link__text"> Personal details</span></a>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">check_circle</span>
+              <div class="do-dont-card__text"><strong>Do</strong> name the destination: "Personal details", "Home".</div>
+            </div>
+          </div>
+          <div class="do-dont-card do-dont-card--dont">
+            <div class="do-dont-card__demo">
+              <a href="#" class="back-link"><span class="material-icons" aria-hidden="true">chevron_left</span><span class="back-link__text"> Back</span></a>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">cancel</span>
+              <div class="do-dont-card__text"><strong>Don't</strong> use generic "Back" — screen reader users navigate by link text and "Back" is ambiguous.</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Progress indicator</h2>
+        <p>For multi-step forms, show the citizen's position in the flow. Display as a step count ("Step 2 of 5") above the page heading, not as a visual progress bar alone.</p>
+        <div class="demo demo--column" style="gap:6px">
+          <div style="font-size:13px;color:#505A5F;font-family:'Lato',sans-serif">Step 2 of 5</div>
+          <div style="font-size:24px;font-weight:700;color:#0B0C0C;font-family:'Lato',sans-serif">Employment</div>
+        </div>
+
+        <h2>Section list (before you begin)</h2>
+        <p>Used on the Before You Begin screen to preview all sections of the form. Sections use an inner card surface with a completed/pending state indicator.</p>
+        <div class="demo demo--column" style="gap:8px;max-width:360px">
+          <div style="background:#F0F0F0;border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif">
+            <span class="material-icons" style="color:#008660">check_circle</span>
+            <span style="font-size:15px">Personal details</span>
+            <span style="margin-left:auto;font-size:12px;color:#008660;font-weight:700">Complete</span>
+          </div>
+          <div style="background:#F0F0F0;border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif">
+            <span class="material-icons" style="color:#888">radio_button_unchecked</span>
+            <span style="font-size:15px;color:#505A5F">Employment</span>
+            <span style="margin-left:auto;font-size:12px;color:#888">Not started</span>
+          </div>
+          <div style="background:#F0F0F0;border-radius:8px;padding:14px 16px;display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif">
+            <span class="material-icons" style="color:#888">radio_button_unchecked</span>
+            <span style="font-size:15px;color:#505A5F">Income</span>
+            <span style="margin-left:auto;font-size:12px;color:#888">Not started</span>
+          </div>
+        </div>
+
+        <h2>Rules</h2>
+        <ul>
+          <li>Back links navigate to a specific named screen — they do not call <code>history.back()</code>. Implement navigation state explicitly.</li>
+          <li>Back links are <code>&lt;a&gt;</code> elements (navigation to a page), not <code>&lt;button&gt;</code> elements (actions).</li>
+          <li>Section status must be communicated with text ("Complete", "Not started") — not colour alone.</li>
+          <li>Never put form steps or contextual actions in a bottom navigation bar — reserve the bottom nav for top-level destinations.</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Wrap navigation in <code>&lt;nav aria-label="…"&gt;</code>. Use distinct labels for multiple nav elements on the same page (e.g., "Breadcrumb", "Main navigation", "Step navigation").</span>
+            <span class="criterion">1.3.6 / 2.4.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Back links must be <code>&lt;a href&gt;</code> elements with a meaningful label that names the destination. Screen reader users navigate by link text — "Back" alone is not descriptive.</span>
+            <span class="criterion">2.4.4 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The leading chevron icon in the back link is decorative — apply <code>aria-hidden="true"</code>.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Section completion status must include a text label ("Complete", "Not started"), not only a colour-coded icon. Icon and text together meet 1.4.1 (Use of Colour).</span>
+            <span class="criterion">1.4.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Step count ("Step 2 of 5") should be announced to screen readers. Place it in a <code>&lt;p&gt;</code> element with <code>aria-label="Step 2 of 5"</code> or make it part of the page <code>&lt;title&gt;</code>.</span>
+            <span class="criterion">2.4.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>On single-page navigation (screen transitions without a full page reload), update the page <code>&lt;title&gt;</code> and move focus to the new <code>&lt;h1&gt;</code> or the top of the new screen content.</span>
+            <span class="criterion">2.4.3 A</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Back link</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;nav aria-label="Step navigation"&gt;
+  &lt;a href="/personal-details" class="back-link"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;chevron_left&lt;/span&gt;
+    Personal details
+  &lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+        </div>
+
+        <h2>Step counter</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;p class="step-count" aria-label="Step 2 of 5"&gt;
+  Step 2 of 5
+&lt;/p&gt;
+&lt;h1&gt;Employment&lt;/h1&gt;</code></pre>
+        </div>
+
+        <h2>Section list</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;ul class="section-list" aria-label="Application sections"&gt;
+  &lt;li class="section-item section-item--complete"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;check_circle&lt;/span&gt;
+    &lt;span&gt;Personal details&lt;/span&gt;
+    &lt;span class="section-item__status"&gt;Complete&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="section-item"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;radio_button_unchecked&lt;/span&gt;
+    &lt;span&gt;Employment&lt;/span&gt;
+    &lt;span class="section-item__status"&gt;Not started&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+
+        <h2>CSS</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-link);
+  text-decoration: underline;
+  font-size: var(--text-body);
+  font-family: var(--font-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  min-height: 44px;
+}
+
+.step-count {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.section-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-bg-card-inner);
+  border-radius: var(--radius-card);
+  padding: 14px var(--space-4);
+  min-height: 48px;
+}
+
+.section-item--complete .material-icons { color: #008660; }
+.section-item__status { margin-left: auto; font-size: var(--text-caption); font-weight: var(--fw-bold); }</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Patterns</span>
+        <div class="content-footer__links"><a href="../patterns/housing-application.html">Housing application →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

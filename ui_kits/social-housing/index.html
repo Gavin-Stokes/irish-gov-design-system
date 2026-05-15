@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Housing App — Irish Gov Life Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #1a1a1a; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; }
+  #root { display: flex; gap: 32px; align-items: flex-start; }
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+  /* Icon SVGs rendered inline — no external font dependency */
+  .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  /* hide any leftover material-icons text */
+  .material-icons { font-family: 'Material Icons', sans-serif; font-weight: normal; font-style: normal; line-height: 1; display: inline-block; text-transform: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useRef } = React;
+
+/* ── DESIGN TOKENS ── */
+const T = {
+  green900: '#004D44', green800: '#008660', green750: '#00875F',
+  green50: '#EAF4F5', neutral900: '#0B0C0C', neutral550: '#505A5F',
+  neutral100: '#F0F0F0', neutral25: '#F2F2F2', white: '#FFFFFF',
+  shadow: '0px 4px 4px 0px rgba(0,0,0,0.25)',
+};
+
+/* ── SHARED COMPONENTS ── */
+/* ── INLINE SVG ICONS (no external font needed) ── */
+const IconChevronLeft = ({size=22, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
+const IconChevronRight = ({size=20, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+const IconArrowForward = ({size=20, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+  </svg>
+);
+const IconBell = ({size=20, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" />
+  </svg>
+);
+const IconUser = ({size=20, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+  </svg>
+);
+const IconCheck = ({size=16, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const IconPhone = ({size=18, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z" />
+  </svg>
+);
+const IconSupport = ({size=24, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block',flexShrink:0}}>
+    <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="4" />
+    <line x1="4.93" y1="4.93" x2="9.17" y2="9.17" /><line x1="14.83" y1="14.83" x2="19.07" y2="19.07" />
+    <line x1="14.83" y1="9.17" x2="19.07" y2="4.93" /><line x1="4.93" y1="19.07" x2="9.17" y2="14.83" />
+  </svg>
+);
+const IconCircleCheck = ({size=40, color='currentColor'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{display:'block'}}>
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />
+  </svg>
+);
+const IconError = ({size=15, color='#d4351c'}) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} style={{display:'block',flexShrink:0}}>
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+  </svg>
+);
+
+function HarpMark({ color = '#fff' }) {
+  return (
+    <svg width="24" height="38" viewBox="0 0 28 44" fill="none">
+      <rect x="0" y="0" width="1.5" height="44" fill={color} />
+      <path d="M7 3 C7 3 22 9 22 22 C22 35 7 41 7 41" stroke={color} strokeWidth="2.5" fill="none" />
+      <path d="M9 7 C9 7 19 12 19 22 C19 32 9 37 9 37" stroke={color} strokeWidth="1.5" fill="none" opacity="0.7" />
+      {[9,15,22,29,35].map(y => <line key={y} x1={y<12?5:4} y1={y} x2={y<40?22:20} y2={y} stroke={color} strokeWidth="1.1" opacity="0.5" />)}
+    </svg>
+  );
+}
+
+function AppHeader({ onBack, showHero = false, userName = 'David' }) {
+  const bg = showHero ? T.green900 : T.green800;
+  return (
+    <div style={{ background: bg, borderRadius: '10px 10px 0 0', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+      {showHero && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: "url('../../assets/hero-overlay.png')",
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          opacity: 0.8, mixBlendMode: 'overlay', pointerEvents: 'none'
+        }} />
+      )}
+      <div style={{ position: 'relative' }}>
+        <div style={{ height: 24, background: 'transparent' }} />
+        <div style={{ height: 67.5, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            {onBack
+              ? <button onClick={onBack} style={{ background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff' }}>
+                  <IconChevronLeft size={22} color="#fff" />
+                </button>
+              : <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <IconBell size={20} color="#fff" />
+                </div>
+            }
+            <HarpMark />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span style={{ color: '#fff', fontSize: 15 }}>{userName}</span>
+            <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              <IconUser size={20} color="#fff" />
+            </div>
+          </div>
+        </div>
+        <div style={{ height: 8 }} />
+        {showHero && (
+          <div style={{ padding: '8px 16px 28px' }}>
+            <div style={{ fontSize: 28, fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>Good Morning David</div>
+            <div style={{ fontSize: 16, fontWeight: 500, color: 'rgba(255,255,255,0.85)', lineHeight: 1.5, marginTop: 8 }}>Welcome back to your one stop shop<br />for public services in Ireland</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function PrimaryBtn({ children, onClick, fullWidth, dark, disabled }) {
+  return (
+    <button onClick={onClick} disabled={disabled} style={{
+      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+      background: disabled ? '#CCC' : dark ? T.green900 : T.green750,
+      color: disabled ? '#888' : '#fff', border: 'none', borderRadius: 4,
+      fontFamily: "'Lato',sans-serif", fontSize: 16, height: fullWidth ? 58 : 48,
+      width: fullWidth ? '100%' : 'auto', padding: '0 24px',
+      cursor: disabled ? 'not-allowed' : 'pointer',
+    }}>
+      {children}
+      {!disabled && <IconArrowForward size={20} color="#fff" />}
+    </button>
+  );
+}
+
+function BackLink({ label = 'Home', onClick }) {
+  return (
+    <button onClick={onClick} style={{ display: 'flex', alignItems: 'center', gap: 2, background: 'none', border: 'none', color: T.green900, fontSize: 16, fontFamily: "'Lato',sans-serif", textDecoration: 'none', cursor: 'pointer', padding: '8px 4px' }}>
+      <IconChevronLeft size={22} color={T.green900} />
+      <span style={{ textDecoration: 'underline', whiteSpace: 'nowrap' }}>{label}</span>
+    </button>
+  );
+}
+
+function ServiceCard({ title, description, imgSrc }) {
+  return (
+    <div style={{ borderRadius: 10, background: T.green50, boxShadow: T.shadow, padding: 20, position: 'relative', overflow: 'hidden' }}>
+      {imgSrc && <img src={imgSrc} alt="" style={{ position: 'absolute', right: 12, top: 12, width: 64, height: 64, objectFit: 'contain', opacity: 0.9 }} />}
+      <h3 style={{ fontSize: 20, fontWeight: 700, color: T.green900, lineHeight: 1.3, paddingRight: imgSrc ? 76 : 0, marginBottom: 8 }}>{title}</h3>
+      <p style={{ fontSize: 15, color: T.neutral900, lineHeight: 1.5 }}>{description}</p>
+    </div>
+  );
+}
+
+function FieldRow({ label, hint, error, children }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+      <label style={{ fontSize: 16, fontWeight: 700, color: T.neutral900 }}>{label}</label>
+      {hint && <div style={{ fontSize: 14, color: T.neutral550 }}>{hint}</div>}
+      {children}
+      {error && <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, color: '#d4351c' }}><IconError size={15} />{error}</div>}
+    </div>
+  );
+}
+
+function TextInput({ value, onChange, placeholder, prefilled }) {
+  return (
+    <input value={value} onChange={onChange} placeholder={placeholder} style={{
+      fontFamily: "'Lato',sans-serif", fontSize: 16,
+      border: `1px solid ${prefilled ? T.green800 : '#888'}`,
+      padding: '10px 12px', color: T.neutral900, background: '#fff', width: '100%',
+    }} />
+  );
+}
+
+function WizardStep({ num, label, complete, active }) {
+  const bg = complete ? T.green900 : active ? T.green800 : '#ccc';
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, flex: 1 }}>
+      <div style={{ width: 28, height: 28, borderRadius: '50%', background: bg, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700 }}>
+        {complete ? <IconCheck size={14} color="#fff" /> : num}
+      </div>
+      <div style={{ fontSize: 9, color: active ? T.green900 : '#888', fontWeight: active ? 700 : 400, textAlign: 'center', lineHeight: 1.2 }}>{label}</div>
+    </div>
+  );
+}
+
+function Stepper({ step }) {
+  const steps = ['Personal', 'Employment', 'Income', 'Housing', 'Review'];
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-start', padding: '12px 16px', background: '#fff', borderBottom: '1px solid #e0e0e0' }}>
+      {steps.map((s, i) => (
+        <React.Fragment key={s}>
+          <WizardStep num={i + 1} label={s} complete={i < step} active={i === step} />
+          {i < steps.length - 1 && (
+            <div style={{ flex: 1, height: 2, background: i < step ? T.green900 : '#e0e0e0', marginTop: 13 }} />
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+/* ── SCREENS ── */
+
+function HomeScreen({ onNavigate }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+      <AppHeader showHero={true} />
+
+      {/* Content */}
+      <div style={{ background: T.white, flex: 1, padding: '24px 16px', display: 'flex', flexDirection: 'column', gap: 32 }}>
+        {/* Application card */}
+        <div style={{ borderRadius: 8, background: T.neutral100, padding: 20, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: T.green900, lineHeight: 1.3 }}>Social housing<br />application form</h3>
+            <img src="../../assets/illustration-house.png" alt="" style={{ width: 64, height: 64, objectFit: 'contain', opacity: 0.9 }} />
+          </div>
+          <p style={{ fontSize: 15, color: T.neutral550 }}>Apply online, quickly and easily for social housing</p>
+          <PrimaryBtn fullWidth onClick={() => onNavigate('before-you-begin')}>Apply now</PrimaryBtn>
+        </div>
+
+        {/* Supports */}
+        <div>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: T.green900, marginBottom: 6 }}>Supports tailored for you</h2>
+          <p style={{ fontSize: 15, color: T.neutral900, lineHeight: 1.5, marginBottom: 20 }}>You recently qualified for Jobseekers Benefit, below are some supports and grants that may help you on your journey.</p>
+
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: T.green900, marginBottom: 14 }}>Grants you could apply for</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <ServiceCard title="Home Support Service" description="Helps older people and carers with daily tasks, based on individual needs." imgSrc="../../assets/illustration-house.png" />
+            <ServiceCard title="Long Term Carers Contribution" description="Helps full-time carers qualify for the State Pension (Contributory)." imgSrc="../../assets/illustration-person.png" />
+          </div>
+        </div>
+
+        <div>
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: T.green900, marginBottom: 14 }}>Services and supports you can avail of</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <ServiceCard title="Respite Care Services" description="Allows carers breaks while someone else looks after the person they care for." />
+            <ServiceCard title="Day Care Services" description="Provides structured activities and social interaction during the day." />
+          </div>
+        </div>
+      </div>
+
+      {/* Help panel */}
+      <HelpPanel />
+    </div>
+  );
+}
+
+function BeforeYouBeginScreen({ onNavigate }) {
+  const sections = [
+    { tag: 'Personal', title: 'Personal details', desc: 'You will need to provide your name, date of birth, PPSN and contact details' },
+    { tag: 'Employment', title: 'Employment details', desc: 'You will need to provide details about your employment' },
+    { tag: 'Income', title: 'Income details', desc: 'You will need to provide details about your income, funds and any property you own' },
+    { tag: 'Housing', title: 'Current living situation', desc: 'You will need to provide details of your current living situation' },
+    { tag: 'Previous', title: 'Previous housing details', desc: 'You will need to provide details of your previous accommodation from the last 5 years' },
+    { tag: 'Requirements', title: 'Housing requirements', desc: 'You will need to detail the requirements you have for housing' },
+  ];
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+      <AppHeader onBack={() => onNavigate('home')} />
+      <div style={{ background: 'rgba(240,240,240,0.9)', padding: '20px 16px 20px' }}>
+        <BackLink label="Home" onClick={() => onNavigate('home')} />
+        <h1 style={{ fontSize: 24, fontWeight: 700, color: T.neutral900, marginBottom: 6 }}>Social Housing Application</h1>
+        <p style={{ fontSize: 16, color: T.neutral550, lineHeight: 1.5 }}>Completing your Social Housing application form will take approximately 10 minutes</p>
+      </div>
+      <div style={{ background: T.white, flex: 1, padding: '24px 16px 40px', display: 'flex', flexDirection: 'column', gap: 24 }}>
+        <div>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: T.neutral900, marginBottom: 16 }}>What questions will you have to answer?</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {sections.map((s, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '12px 0', borderBottom: '1px solid #f0f0f0' }}>
+                <div style={{ width: 28, height: 28, borderRadius: '50%', background: T.green50, border: `2px solid ${T.green900}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 12, fontWeight: 700, color: T.green900 }}>{i + 1}</div>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: T.green900 }}>{s.title}</div>
+                  <div style={{ fontSize: 14, color: T.neutral550, marginTop: 3, lineHeight: 1.4 }}>{s.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ padding: '16px 0', borderTop: '1px solid #e0e0e0' }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: T.green900, marginBottom: 6 }}>Personal data</div>
+          <p style={{ fontSize: 15, color: T.neutral550, lineHeight: 1.5 }}>To support you in completing your application form we use information and data held in other public sector bodies such as Department of Social Protection, Department of Justice, An Garda Síochána, and Revenue Commissioners.</p>
+        </div>
+        <PrimaryBtn fullWidth onClick={() => onNavigate('personal-details')}>Start application</PrimaryBtn>
+      </div>
+      <HelpPanel />
+    </div>
+  );
+}
+
+function PersonalDetailsScreen({ onNavigate }) {
+  const [form, setForm] = useState({ firstName: 'David', lastName: 'Murphy', dob: '1985-03-15', ppsn: '1234567T', email: '', phone: '' });
+  const set = k => e => setForm(f => ({ ...f, [k]: e.target.value }));
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+      <AppHeader onBack={() => onNavigate('before-you-begin')} />
+      <div style={{ background: 'rgba(240,240,240,0.9)', padding: '20px 16px 20px' }}>
+        <BackLink label="Before you begin" onClick={() => onNavigate('before-you-begin')} />
+        <h1 style={{ fontSize: 24, fontWeight: 700, color: T.neutral900, marginBottom: 4 }}>Social housing application</h1>
+        <p style={{ fontSize: 15, color: T.neutral550 }}>Complete the following sections to apply for social housing</p>
+      </div>
+      <Stepper step={0} />
+      <div style={{ background: T.white, flex: 1, padding: '24px 16px 40px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: T.neutral900 }}>Personal details</h2>
+        <FieldRow label="First name" hint="As it appears on your passport or driving licence">
+          <TextInput value={form.firstName} onChange={set('firstName')} prefilled />
+        </FieldRow>
+        <FieldRow label="Last name">
+          <TextInput value={form.lastName} onChange={set('lastName')} prefilled />
+        </FieldRow>
+        <FieldRow label="Date of birth">
+          <TextInput type="date" value={form.dob} onChange={set('dob')} prefilled />
+        </FieldRow>
+        <FieldRow label="PPSN" hint="Pre-filled from your MyGovID account">
+          <TextInput value={form.ppsn} onChange={set('ppsn')} prefilled />
+          <div style={{ fontSize: 13, color: T.green800 }}>✓ Verified via MyGovID</div>
+        </FieldRow>
+        <FieldRow label="Email address" error={form.email && !form.email.includes('@') ? 'Enter a valid email address' : null}>
+          <TextInput type="email" value={form.email} onChange={set('email')} placeholder="e.g. name@example.com" />
+        </FieldRow>
+        <FieldRow label="Phone number" hint="We may use this to contact you about your application">
+          <TextInput type="tel" value={form.phone} onChange={set('phone')} placeholder="e.g. 087 123 4567" />
+        </FieldRow>
+        <PrimaryBtn fullWidth onClick={() => onNavigate('employment')}>Continue to Employment</PrimaryBtn>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button style={{ background: 'none', border: 'none', color: T.green900, fontSize: 15, textDecoration: 'underline', cursor: 'pointer', fontFamily: "'Lato',sans-serif" }}>Save and return later</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EmploymentScreen({ onNavigate }) {
+  const [status, setStatus] = useState('employed-full');
+  const [employer, setEmployer] = useState('');
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+      <AppHeader onBack={() => onNavigate('personal-details')} />
+      <div style={{ background: 'rgba(240,240,240,0.9)', padding: '20px 16px 20px' }}>
+        <BackLink label="Personal details" onClick={() => onNavigate('personal-details')} />
+        <h1 style={{ fontSize: 24, fontWeight: 700, color: T.neutral900, marginBottom: 4 }}>Social housing application</h1>
+        <p style={{ fontSize: 15, color: T.neutral550 }}>Complete the following sections to apply for social housing</p>
+      </div>
+      <Stepper step={1} />
+      <div style={{ background: T.white, flex: 1, padding: '24px 16px 40px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, color: T.neutral900 }}>Employment details</h2>
+        <FieldRow label="Current employment status">
+          {[
+            { value: 'employed-full', label: 'Employed full-time' },
+            { value: 'employed-part', label: 'Employed part-time' },
+            { value: 'unemployed', label: 'Unemployed' },
+            { value: 'self-employed', label: 'Self-employed' },
+            { value: 'retired', label: 'Retired' },
+            { value: 'unable', label: 'Unable to work' },
+          ].map(opt => (
+            <label key={opt.value} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 16, cursor: 'pointer', padding: '4px 0' }}>
+              <input type="radio" name="status" value={opt.value} checked={status === opt.value} onChange={e => setStatus(e.target.value)} style={{ width: 20, height: 20, accentColor: T.green900 }} />
+              {opt.label}
+            </label>
+          ))}
+        </FieldRow>
+        {(status === 'employed-full' || status === 'employed-part') && (
+          <FieldRow label="Employer name">
+            <TextInput value={employer} onChange={e => setEmployer(e.target.value)} placeholder="e.g. Department of Social Protection" />
+          </FieldRow>
+        )}
+        <PrimaryBtn fullWidth onClick={() => onNavigate('success')}>Continue to Income</PrimaryBtn>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button style={{ background: 'none', border: 'none', color: T.green900, fontSize: 15, textDecoration: 'underline', cursor: 'pointer', fontFamily: "'Lato',sans-serif" }}>Save and return later</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SuccessScreen({ onNavigate }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+      <AppHeader onBack={() => onNavigate('home')} />
+      <div style={{ background: 'rgba(240,240,240,0.9)', padding: '20px 16px 20px' }}>
+        <BackLink label="Home" onClick={() => onNavigate('home')} />
+      </div>
+      <div style={{ background: T.white, flex: 1, padding: '24px 16px 40px', display: 'flex', flexDirection: 'column', gap: 24, alignItems: 'center', textAlign: 'center' }}>
+        {/* Success icon */}
+        <div style={{ width: 80, height: 80, borderRadius: '50%', background: T.green50, border: `3px solid ${T.green900}`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 16 }}>
+          <IconCircleCheck size={44} color={T.green900} />
+        </div>
+        <div>
+          <h1 style={{ fontSize: 28, fontWeight: 700, color: T.neutral900, lineHeight: 1.3 }}>Your application has been submitted</h1>
+          <div style={{ marginTop: 12, padding: '8px 20px', background: T.green50, borderRadius: 24, display: 'inline-block' }}>
+            <span style={{ fontSize: 14, color: T.green900, fontWeight: 700 }}>Reference: SHA-2024-00142</span>
+          </div>
+        </div>
+        <p style={{ fontSize: 16, color: T.neutral550, lineHeight: 1.6, maxWidth: 320 }}>
+          To see when you will be contacted and which steps you need to take, select 'What happens next' for more information.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%', maxWidth: 358 }}>
+          <PrimaryBtn fullWidth onClick={() => onNavigate('home')}>What happens next?</PrimaryBtn>
+          <button onClick={() => onNavigate('home')} style={{ background: 'none', border: 'none', color: T.green900, fontSize: 16, fontWeight: 700, textDecoration: 'underline', cursor: 'pointer', fontFamily: "'Lato',sans-serif", padding: '12px 0' }}>
+            Return to dashboard
+          </button>
+        </div>
+      </div>
+      <HelpPanel />
+    </div>
+  );
+}
+
+function HelpPanel() {
+  return (
+    <div style={{ background: T.green900, padding: '36px 16px 44px', flexShrink: 0 }}>
+      <h2 style={{ fontSize: 24, fontWeight: 700, color: '#EAF4F5', marginBottom: 18 }}>Need Help?</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 16 }}>
+        <p style={{ fontSize: 15, color: '#EAF4F5', lineHeight: 1.5 }}>Can we help right now?<br />Chat with our digital assistant.</p>
+        <div style={{ width: 52, height: 52, borderRadius: '50%', border: '3px solid #EAF4F5', background: 'rgba(255,255,255,0.1)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+          <IconSupport size={24} color="#EAF4F5" />
+          <div style={{ width: 12, height: 12, background: '#19B729', borderRadius: '50%', border: '3px solid #004D44', position: 'absolute', top: 1, right: 1 }} />
+        </div>
+      </div>
+      <div style={{ height: 1, background: 'rgba(255,255,255,0.3)', margin: '16px 0' }} />
+      <div style={{ marginBottom: 16 }}>
+        <p style={{ fontSize: 15, color: '#EAF4F5', lineHeight: 1.5, marginBottom: 8 }}><strong>Give us a call</strong><br />Our Centralised Service Line can quickly direct you to any government service.</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <IconPhone size={18} color="#EAF4F5" />
+          <span style={{ color: '#EAF4F5', fontSize: 15 }}>1800 XXX XXX</span>
+        </div>
+      </div>
+      <div style={{ height: 1, background: 'rgba(255,255,255,0.3)', margin: '16px 0' }} />
+      <p style={{ fontSize: 15, fontWeight: 700, color: '#EAF4F5', lineHeight: 1.5, marginBottom: 12 }}>
+        Chat with someone in person<br />
+        <span style={{ fontWeight: 400 }}>With Quick Meet you can schedule a meeting in your local Services Hub. It's superfast!</span>
+      </p>
+      <button style={{ display: 'block', width: '100%', background: '#EAF4F5', color: T.green900, border: 'none', borderRadius: 4, fontFamily: "'Lato',sans-serif", fontSize: 15, fontWeight: 700, padding: 14, cursor: 'pointer', marginBottom: 12 }}>
+        Let's schedule a call
+      </button>
+      <a style={{ fontSize: 15, fontWeight: 700, color: '#EAF4F5', textDecoration: 'underline', cursor: 'pointer' }}>Discover more in FAQs</a>
+    </div>
+  );
+}
+
+/* ── SCREEN LABELS ── */
+const SCREEN_LABELS = {
+  'home': '01 Home',
+  'before-you-begin': '02 Before You Begin',
+  'personal-details': '03 Personal Details',
+  'employment': '04 Employment',
+  'success': '05 Success',
+};
+
+/* ── MAIN APP ── */
+function App() {
+  const [screen, setScreen] = useState('home');
+  const [history, setHistory] = useState(['home']);
+
+  const navigate = (s) => {
+    setScreen(s);
+    setHistory(h => [...h, s]);
+  };
+
+  const SCREENS = { 'home': HomeScreen, 'before-you-begin': BeforeYouBeginScreen, 'personal-details': PersonalDetailsScreen, 'employment': EmploymentScreen, 'success': SuccessScreen };
+  const Screen = SCREENS[screen] || HomeScreen;
+
+  const screenLabels = Object.keys(SCREENS);
+
+  return (
+    <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+      {/* Phone frame */}
+      <div style={{ width: 390, flexShrink: 0, position: 'relative' }}>
+        {/* Device shadow */}
+        <div style={{ position: 'absolute', inset: -2, borderRadius: 14, boxShadow: '0 20px 60px rgba(0,0,0,0.5)', pointerEvents: 'none' }} />
+        {/* Screen */}
+        <div data-screen-label={SCREEN_LABELS[screen] || screen} style={{
+          width: 390, height: 844, borderRadius: 10, overflow: 'hidden',
+          background: T.neutral25, display: 'flex', flexDirection: 'column',
+          position: 'relative',
+        }}>
+          <Screen onNavigate={navigate} />
+        </div>
+      </div>
+
+      {/* Navigation sidebar */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, paddingTop: 8 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: '#888', textTransform: 'uppercase', marginBottom: 4 }}>Screens</div>
+        {screenLabels.map(s => (
+          <button key={s} onClick={() => setScreen(s)} style={{
+            background: screen === s ? T.green900 : 'rgba(255,255,255,0.08)',
+            color: screen === s ? '#fff' : 'rgba(255,255,255,0.6)',
+            border: screen === s ? 'none' : '1px solid rgba(255,255,255,0.1)',
+            borderRadius: 6, padding: '8px 14px', cursor: 'pointer',
+            fontFamily: "'Lato',sans-serif", fontSize: 12, textAlign: 'left',
+            whiteSpace: 'nowrap', transition: 'all 0.15s',
+          }}>
+            {SCREEN_LABELS[s]}
+          </button>
+        ))}
+        <div style={{ height: 1, background: 'rgba(255,255,255,0.1)', margin: '8px 0' }} />
+        <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5, maxWidth: 140 }}>
+          Irish Gov Life Events<br />Social Housing App<br />Prototype — 2024
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

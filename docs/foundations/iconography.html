@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iconography — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    .icon-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:12px; margin:20px 0; }
+    .icon-item { display:flex; flex-direction:column; align-items:center; gap:8px; padding:16px 8px; border:1px solid var(--border-light); border-radius:8px; text-align:center; font-size:12px; color:var(--text-secondary); }
+    .icon-item .material-icons { font-size:28px; color:var(--brand-dark); }
+    .icon-item code { font-size:10px; color:var(--text-secondary); font-family:var(--font-mono); }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Iconography</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Foundations</li><li aria-current="page">Iconography</li></ol></nav>
+      <div class="page-header">
+        <h1>Iconography</h1>
+        <p class="page-header__desc">Material Icons (outlined) serve as the icon set, paired with the brand's custom Figma icon set for full design fidelity.</p>
+        <div class="page-header__tags"><span class="tag tag--foundation">Foundation</span></div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <div class="callout callout--warning">
+          <span class="material-icons" aria-hidden="true">warning</span>
+          <div><strong>Substitution note:</strong> The original icons are a custom Material-inspired set built into the Figma file. Material Icons (outlined) are used in implementation as the closest CDN-available substitute. Flag to the design team if pixel-perfect icon fidelity is required.</div>
+        </div>
+
+        <h2>System icons</h2>
+        <p>These icons are used across the Social Housing Application UI. All render at 24×24px by default.</p>
+
+        <div class="icon-grid">
+          <div class="icon-item"><span class="material-icons">arrow_forward</span><span>Forward</span><code>arrow_forward</code></div>
+          <div class="icon-item"><span class="material-icons">chevron_left</span><span>Back</span><code>chevron_left</code></div>
+          <div class="icon-item"><span class="material-icons">notifications</span><span>Notifications</span><code>notifications</code></div>
+          <div class="icon-item"><span class="material-icons">person</span><span>Profile</span><code>person</code></div>
+          <div class="icon-item"><span class="material-icons">phone</span><span>Phone</span><code>phone</code></div>
+          <div class="icon-item"><span class="material-icons">calendar_today</span><span>Date</span><code>calendar_today</code></div>
+          <div class="icon-item"><span class="material-icons">open_in_new</span><span>External link</span><code>open_in_new</code></div>
+          <div class="icon-item"><span class="material-icons">info</span><span>Info / help</span><code>info</code></div>
+          <div class="icon-item"><span class="material-icons">check_circle</span><span>Complete</span><code>check_circle</code></div>
+          <div class="icon-item"><span class="material-icons">expand_more</span><span>Expand</span><code>expand_more</code></div>
+          <div class="icon-item"><span class="material-icons">chat</span><span>Chat</span><code>chat</code></div>
+          <div class="icon-item"><span class="material-icons">home</span><span>Home</span><code>home</code></div>
+          <div class="icon-item"><span class="material-icons">description</span><span>Document</span><code>description</code></div>
+          <div class="icon-item"><span class="material-icons">error</span><span>Error</span><code>error</code></div>
+          <div class="icon-item"><span class="material-icons">check</span><span>Check</span><code>check</code></div>
+          <div class="icon-item"><span class="material-icons">close</span><span>Close</span><code>close</code></div>
+        </div>
+
+        <h2>Icon sizes</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Token</th><th>Size</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td><code>--icon-size</code></td><td>24px</td><td>Standard UI icons in buttons, nav, forms</td></tr>
+            <tr><td><code>--icon-size-lg</code></td><td>32px</td><td>Section / card accent icons</td></tr>
+            <tr><td><code>--icon-size-xl</code></td><td>48px</td><td>Illustration-style decorative icons</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Harp mark</h2>
+        <p>The Irish Government "Simplified Digital Harp" appears in the app header — white on green. It is a stylised SVG harp with a vertical rule and government text. It must always appear white on the deep green header; never in a colour variant.</p>
+
+        <div class="demo demo--dark demo--centered">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 20px;background:#008660;border-radius:8px">
+            <svg width="32" height="40" viewBox="0 0 32 40" fill="none" aria-label="Irish Government harp mark" role="img">
+              <path d="M16 2 C10 2 6 8 6 16 L6 36 L10 36 L10 16 C10 10 12 6 16 6 C20 6 22 10 22 16 L22 36 L26 36 L26 16 C26 8 22 2 16 2Z" fill="white" opacity="0.9"/>
+              <path d="M6 16 L22 16 M6 20 L22 20 M6 24 L22 24 M6 28 L22 28" stroke="white" stroke-width="1" opacity="0.6"/>
+            </svg>
+            <span style="color:white;font-weight:700;font-size:14px;font-family:'Lato',sans-serif">Irish Government</span>
+          </div>
+        </div>
+
+        <h2>Illustrations</h2>
+        <p>Flat vector illustrations in brand greens are used as decorative card accents. They are always <code>aria-hidden="true"</code>.</p>
+
+        <table class="spacing-table">
+          <thead><tr><th>File</th><th>Used on</th></tr></thead>
+          <tbody>
+            <tr><td><code>illustration-house.png</code></td><td>Social Housing card</td></tr>
+            <tr><td><code>illustration-person.png</code></td><td>Carers / person-related card</td></tr>
+            <tr><td><code>illustration-frame.png</code></td><td>Decorative frame</td></tr>
+            <tr><td><code>illustration-icon.png</code></td><td>Small icon accent</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <h2>Accessibility requirements</h2>
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span><strong>Decorative icons</strong> that repeat adjacent text must have <code>aria-hidden="true"</code> to prevent screen reader duplication.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span><strong>Icon-only buttons</strong> (notification bell, avatar, close) must have a visible or programmatic label: <code>aria-label="Notifications"</code>.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span><strong>Informative icons</strong> (status icons, standalone meaning) must have an <code>alt</code> attribute or associated text.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>All illustrations in the UI are decorative. Use <code>alt=""</code> on <code>&lt;img&gt;</code> elements and <code>aria-hidden="true"</code> on SVGs.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Icon-only interactive elements must have a touch target of at least 44×44px regardless of the icon's visual size (24px).</span>
+            <span class="criterion">2.5.5</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Icons used for status (success, error, warning) must always be paired with a text label — never colour and icon alone.</span>
+            <span class="criterion">1.4.1 A</span>
+          </li>
+        </ul>
+
+        <h2>Correct usage patterns</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;!-- Decorative: icon repeats adjacent text --&gt;
+&lt;button&gt;
+  &lt;span class="material-icons" aria-hidden="true"&gt;arrow_forward&lt;/span&gt;
+  Apply now
+&lt;/button&gt;
+
+&lt;!-- Icon-only: needs aria-label --&gt;
+&lt;button aria-label="Notifications"&gt;
+  &lt;span class="material-icons" aria-hidden="true"&gt;notifications&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Informative illustration --&gt;
+&lt;img src="illustration-house.png" alt="" aria-hidden="true"&gt;
+
+&lt;!-- Status icon: pair with text --&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;check_circle&lt;/span&gt;
+&lt;span&gt;Application submitted&lt;/span&gt;</code></pre>
+        </div>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Loading Material Icons</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"&gt;</code></pre>
+        </div>
+
+        <h2>Using icons</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;!-- Standard 24px icon --&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;arrow_forward&lt;/span&gt;
+
+&lt;!-- Size override --&gt;
+&lt;span class="material-icons"
+      style="font-size: 32px"
+      aria-hidden="true"&gt;home&lt;/span&gt;</code></pre>
+        </div>
+
+        <h2>CSS icon size tokens</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>--icon-size:    24px;   /* Standard */
+--icon-size-lg: 32px;   /* Section accent */
+--icon-size-xl: 48px;   /* Decorative / large */
+
+.icon { font-size: var(--icon-size); }
+.icon--lg { font-size: var(--icon-size-lg); }
+.icon--xl { font-size: var(--icon-size-xl); }</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Components</span>
+        <div class="content-footer__links"><a href="../components/button.html">Button →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

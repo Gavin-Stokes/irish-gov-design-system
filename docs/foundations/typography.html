@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography — Irish Government Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <span class="material-icons">menu</span>
+  </button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/>
+      <path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Typography</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation">
+    <div id="nav-container"></div>
+  </nav>
+
+  <main id="main-content" class="content">
+    <div class="content-inner">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Foundations</li>
+          <li aria-current="page">Typography</li>
+        </ol>
+      </nav>
+
+      <div class="page-header">
+        <h1>Typography</h1>
+        <p class="page-header__desc">Lato is the primary typeface — clean, humanist, and legible at all sizes on mobile screens.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--foundation">Foundation</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-tokens" id="tab-tokens">Tokens</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+
+        <h2>Typefaces</h2>
+
+        <table class="spacing-table">
+          <thead><tr><th>Face</th><th>Role</th><th>Where used</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Lato</strong></td>
+              <td>Primary</td>
+              <td>All app UI — headings, body, labels, buttons</td>
+            </tr>
+            <tr>
+              <td>Open Sans</td>
+              <td>Secondary</td>
+              <td>Cover and report documents only — not the app UI</td>
+            </tr>
+            <tr>
+              <td>La Belle Aurore</td>
+              <td>Accent</td>
+              <td>Journey map annotations only — never in UI</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>Load Lato from Google Fonts with all weights used in the system: <code>300, 400, 700, 900</code>. Italic 400 is also used for inline emphasis.</div>
+        </div>
+
+        <h2>Type scale</h2>
+        <p>The scale covers nine levels — from the 10px overline label to the 32px hero heading.</p>
+
+        <div class="type-specimen">
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Hero</strong>32px · Bold 700<br>lh 1.1</div>
+            <div class="type-specimen__example" style="font-size:32px;font-weight:700;line-height:1.1;font-family:'Lato',sans-serif">Good morning, David</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>H1</strong>28px · Bold 700<br>lh 1.25</div>
+            <div class="type-specimen__example" style="font-size:28px;font-weight:700;line-height:1.25;font-family:'Lato',sans-serif">Social housing application</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>H2</strong>24px · Bold 700<br>lh 1.25</div>
+            <div class="type-specimen__example" style="font-size:24px;font-weight:700;line-height:1.25;font-family:'Lato',sans-serif">Grants you could apply for</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>H3</strong>20px · Bold 700<br>lh 1.3</div>
+            <div class="type-specimen__example" style="font-size:20px;font-weight:700;line-height:1.3;font-family:'Lato',sans-serif">Personal details</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Body large</strong>18px · Regular 400<br>lh 1.6</div>
+            <div class="type-specimen__example" style="font-size:18px;font-weight:400;line-height:1.6;font-family:'Lato',sans-serif;color:#505A5F">Complete the following sections to apply for social housing</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Body</strong>16px · Regular 400<br>lh 1.5</div>
+            <div class="type-specimen__example" style="font-size:16px;font-weight:400;line-height:1.5;font-family:'Lato',sans-serif">Your details are pre-filled from your MyGovID profile. You can edit them before submitting.</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Body small</strong>14px · Regular 400<br>lh 1.5</div>
+            <div class="type-specimen__example" style="font-size:14px;font-weight:400;line-height:1.5;font-family:'Lato',sans-serif;color:#505A5F">Application submitted 12 January 2026 · Ref: SH-2026-00142</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Caption</strong>12px · Regular 400<br>lh 1.5</div>
+            <div class="type-specimen__example" style="font-size:12px;font-weight:400;line-height:1.5;font-family:'Lato',sans-serif;color:#505A5F">As it appears on your passport or driver's licence</div>
+          </div>
+          <div class="type-specimen__row">
+            <div class="type-specimen__meta"><strong>Overline</strong>10px · Regular 400<br>ls 0.2em</div>
+            <div class="type-specimen__example" style="font-size:10px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;font-family:'Lato',sans-serif;color:rgba(255,255,255,0.5);background:#004D44;padding:8px 12px;border-radius:4px">DPENDR — Life Events</div>
+          </div>
+        </div>
+
+        <h2>Font weights</h2>
+        <div class="demo demo--column" style="gap:12px">
+          <div style="font-family:'Lato',sans-serif;font-size:20px;font-weight:300">Light 300 — used sparingly</div>
+          <div style="font-family:'Lato',sans-serif;font-size:20px;font-weight:400">Regular 400 — all body copy</div>
+          <div style="font-family:'Lato',sans-serif;font-size:20px;font-weight:700">Bold 700 — all headings and CTAs</div>
+          <div style="font-family:'Lato',sans-serif;font-size:20px;font-weight:900">Black 900 — display emphasis</div>
+        </div>
+
+        <h2>Usage guidelines</h2>
+
+        <div class="do-dont-grid">
+          <div class="do-dont-card do-dont-card--do">
+            <div class="do-dont-card__demo" style="flex-direction:column;align-items:flex-start;padding:20px">
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#888;font-family:'Lato',sans-serif">Section label</span>
+              <span style="font-size:24px;font-weight:700;color:#004D44;font-family:'Lato',sans-serif;line-height:1.25">Personal details</span>
+              <span style="font-size:16px;color:#505A5F;font-family:'Lato',sans-serif;line-height:1.5">Enter your details as they appear on your MyGovID.</span>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">check_circle</span>
+              <div class="do-dont-card__text"><strong>Do</strong> use sentence case for all labels, headings, and body copy.</div>
+            </div>
+          </div>
+          <div class="do-dont-card do-dont-card--dont">
+            <div class="do-dont-card__demo" style="flex-direction:column;align-items:flex-start;padding:20px">
+              <span style="font-size:24px;font-weight:700;color:#004D44;font-family:'Lato',sans-serif">PERSONAL DETAILS</span>
+              <span style="font-size:16px;color:#505A5F;font-family:'Lato',sans-serif">Enter Your Details As They Appear On Your MyGovID.</span>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">cancel</span>
+              <div class="do-dont-card__text"><strong>Don't</strong> use ALL CAPS for headings or Title Case for body text.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>Typography choices directly affect readability for people with dyslexia, low vision, and cognitive differences. Lato was chosen for its humanist letterforms and generous x-height.</div>
+        </div>
+
+        <h2>Accessibility requirements</h2>
+
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Body text is <strong>16px minimum</strong>. Do not use body copy smaller than 16px — caption (12px) and supporting (14px) styles are for supplementary, non-critical content only.</span>
+            <span class="criterion">1.4.4 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Line height for body text is <strong>1.5×</strong> the font size. Do not compress line height below this for body copy.</span>
+            <span class="criterion">1.4.12 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Letter spacing on body text is <code>0.005em</code>. This is within WCAG 1.4.12 spacing requirements.</span>
+            <span class="criterion">1.4.12 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Never use <code>px</code> units to set font sizes in production CSS — use <code>rem</code> so users who resize browser text see fonts scale correctly. The token values in <code>colors_and_type.css</code> use <code>rem</code>.</span>
+            <span class="criterion">1.4.4 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Heading levels must reflect document hierarchy: one <code>&lt;h1&gt;</code> per page, then <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code> in order. Never skip levels for visual sizing — use CSS classes instead.</span>
+            <span class="criterion">1.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Do not use ALL CAPS or text-transform: uppercase for body content — it is harder to read and may confuse screen readers in some locales.</span>
+            <span class="criterion">3.1.5 AAA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Avoid justified text (<code>text-align: justify</code>) — it creates uneven word spacing that is difficult for readers with dyslexia.</span>
+            <span class="criterion">1.4.8 AAA</span>
+          </li>
+        </ul>
+
+        <h2>Heading hierarchy example</h2>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">HTML</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>&lt;!-- One h1 per page --&gt;
+&lt;h1&gt;Social housing application&lt;/h1&gt;
+
+&lt;!-- Section headings --&gt;
+&lt;h2&gt;Before you begin&lt;/h2&gt;
+
+  &lt;!-- Sub-sections --&gt;
+  &lt;h3&gt;What you'll need&lt;/h3&gt;
+  &lt;h3&gt;About this application&lt;/h3&gt;
+
+&lt;h2&gt;Personal details&lt;/h2&gt;
+
+  &lt;!-- Don't skip: h2 → h3, never h2 → h4 --&gt;
+  &lt;h3&gt;Contact information&lt;/h3&gt;</code></pre>
+        </div>
+      </div>
+
+      <div id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens">
+        <h2>CSS tokens</h2>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">CSS</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>--font-primary:  'Lato', sans-serif;
+
+/* Weights */
+--fw-light:    300;
+--fw-regular:  400;
+--fw-bold:     700;
+--fw-black:    900;
+
+/* Scale (rem) */
+--text-hero:     2rem;      /* 32px */
+--text-h1:       1.75rem;   /* 28px */
+--text-h2:       1.5rem;    /* 24px */
+--text-h3:       1.25rem;   /* 20px */
+--text-h4:       1.125rem;  /* 18px */
+--text-body:     1rem;      /* 16px */
+--text-small:    0.875rem;  /* 14px */
+--text-caption:  0.75rem;   /* 12px */
+--text-overline: 0.625rem;  /* 10px */
+
+/* Line heights */
+--lh-heading: 1.25;
+--lh-body:    1.5;
+--lh-tight:   1.1;
+
+/* Letter spacing */
+--ls-body:     0.005em;
+--ls-overline: 0.2em;</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Spacing</span>
+        <div class="content-footer__links">
+          <a href="spacing.html">Spacing →</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../nav.js"></script>
+</body>
+</html>

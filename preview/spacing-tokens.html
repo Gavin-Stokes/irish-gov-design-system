@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 16px 20px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 12px; margin-top: 16px; }
+  .section-label:first-child { margin-top: 0; }
+  .tokens { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-end; }
+  .token { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .bar { background: #004D44; border-radius: 2px; width: 28px; }
+  .name { font-size: 9px; font-weight: 700; color: #505A5F; }
+  .val  { font-size: 9px; color: #bbb; }
+  .radii { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+  .radius-box { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .radius-sq { width: 40px; height: 40px; background: #EAF4F5; border: 2px solid #4DA373; }
+</style>
+</head>
+<body>
+  <div class="section-label">Spacing Scale (8px base)</div>
+  <div class="tokens">
+    <div class="token"><div class="bar" style="height:4px"></div><div class="name">space-1</div><div class="val">4px</div></div>
+    <div class="token"><div class="bar" style="height:8px"></div><div class="name">space-2</div><div class="val">8px</div></div>
+    <div class="token"><div class="bar" style="height:12px"></div><div class="name">space-3</div><div class="val">12px</div></div>
+    <div class="token"><div class="bar" style="height:16px"></div><div class="name">space-4</div><div class="val">16px</div></div>
+    <div class="token"><div class="bar" style="height:20px"></div><div class="name">space-5</div><div class="val">20px</div></div>
+    <div class="token"><div class="bar" style="height:24px"></div><div class="name">space-6</div><div class="val">24px</div></div>
+    <div class="token"><div class="bar" style="height:28px"></div><div class="name">space-7</div><div class="val">28px</div></div>
+    <div class="token"><div class="bar" style="height:32px"></div><div class="name">space-8</div><div class="val">32px</div></div>
+    <div class="token"><div class="bar" style="height:40px"></div><div class="name">space-9</div><div class="val">40px</div></div>
+    <div class="token"><div class="bar" style="height:48px"></div><div class="name">space-10</div><div class="val">48px</div></div>
+    <div class="token"><div class="bar" style="height:50px"></div><div class="name">space-11</div><div class="val">50px</div></div>
+  </div>
+  <div class="section-label">Corner Radii</div>
+  <div class="radii">
+    <div class="radius-box"><div class="radius-sq" style="border-radius:0px"></div><div class="name">0px</div><div class="val">None</div></div>
+    <div class="radius-box"><div class="radius-sq" style="border-radius:4px"></div><div class="name">4px</div><div class="val">Buttons</div></div>
+    <div class="radius-box"><div class="radius-sq" style="border-radius:8px"></div><div class="name">8px</div><div class="val">Cards</div></div>
+    <div class="radius-box"><div class="radius-sq" style="border-radius:10px"></div><div class="name">10px</div><div class="val">Card lg</div></div>
+    <div class="radius-box"><div class="radius-sq" style="border-radius:24px"></div><div class="name">24px</div><div class="val">Pills</div></div>
+    <div class="radius-box"><div class="radius-sq" style="border-radius:50%"></div><div class="name">50%</div><div class="val">Avatar</div></div>
+  </div>
+</body>
+</html>

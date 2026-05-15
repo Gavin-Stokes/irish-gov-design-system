@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-step Forms — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    .form-label { font-size:16px; font-weight:700; color:#0B0C0C; font-family:'Lato',sans-serif; }
+    .form-hint  { font-size:14px; color:#505A5F; font-family:'Lato',sans-serif; }
+    .form-input { width:100%; padding:12px 14px; border:1px solid #888; border-radius:4px; font-size:16px; font-family:'Lato',sans-serif; background:#fff; min-height:48px; box-sizing:border-box; }
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .error-summary { border:2px solid #d4351c; border-radius:4px; padding:16px 20px; background:#fdf2f0; }
+    .error-summary h2 { font-size:18px; font-weight:700; color:#d4351c; margin-bottom:8px; font-family:'Lato',sans-serif; }
+    .error-summary ul { padding-left:20px; }
+    .error-summary li { font-size:15px; color:#d4351c; margin-bottom:4px; font-family:'Lato',sans-serif; }
+    .error-summary a { color:#d4351c; font-weight:700; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Multi-step forms</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Patterns</li><li aria-current="page">Multi-step forms</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Multi-step forms</h1>
+        <p class="page-header__desc">Guidance for designing and building long, multi-step forms that citizens can complete with confidence — including error handling, progress, and save states.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--pattern">Pattern</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Structuring a multi-step form</h2>
+        <p>Break long forms into logical sections — typically 5–8 fields per screen. One topic per screen: personal details, employment, income, housing requirements. This approach:</p>
+        <ul>
+          <li>Reduces cognitive load — citizens focus on one area at a time.</li>
+          <li>Improves completion rates — shorter screens feel more achievable.</li>
+          <li>Makes errors easier to understand and fix — errors are isolated to their section.</li>
+          <li>Enables partial saves — citizens can leave and return without losing progress.</li>
+        </ul>
+
+        <h2>Before you begin screen</h2>
+        <p>Always include a "Before you begin" screen at the start of a multi-step form. It must include:</p>
+        <ul>
+          <li>A list of all sections the citizen will complete</li>
+          <li>The estimated time to complete ("approximately 10 minutes")</li>
+          <li>What information the citizen needs to have ready (PPSN, income details, address)</li>
+          <li>A data notice explaining how the submitted information is used and stored</li>
+          <li>A clear primary CTA: "Start application"</li>
+        </ul>
+
+        <div class="demo demo--column" style="gap:0;max-width:360px;background:#f2f2f2;border-radius:8px;padding:20px">
+          <p style="font-size:13px;color:#505A5F;font-family:'Lato',sans-serif;margin-bottom:16px">Step 1 of 5</p>
+          <h2 style="font-size:22px;font-weight:700;font-family:'Lato',sans-serif;color:#0B0C0C;margin-bottom:8px">Before you begin</h2>
+          <p style="font-size:14px;color:#505A5F;font-family:'Lato',sans-serif;margin-bottom:16px">Completing this form will take approximately 10 minutes. You will need:</p>
+          <ul style="font-size:14px;color:#505A5F;font-family:'Lato',sans-serif;padding-left:20px;margin-bottom:20px">
+            <li>Your PPSN</li>
+            <li>Details of your income</li>
+            <li>Your current address</li>
+          </ul>
+          <button class="btn btn--primary btn--full">Start application <span class="material-icons" aria-hidden="true">arrow_forward</span></button>
+        </div>
+
+        <h2>Step counter</h2>
+        <p>Display a text step counter above the page <code>&lt;h1&gt;</code> on every screen in the flow: "Step 2 of 5". Do not use a visual progress bar alone — it is not perceivable by screen readers and conveys no information to citizens who cannot see it.</p>
+
+        <h2>One question per page (where possible)</h2>
+        <p>Where a single question is complex (e.g. employment status with a conditional follow-up), consider giving it its own screen rather than grouping it with other questions. The GOV.UK "one thing per page" principle reduces errors and improves completion rates in government form contexts.</p>
+
+        <h2>Conditional questions</h2>
+        <p>Reveal conditional fields only when triggered by a previous answer. The employer name field should only appear when "Employed" is selected. Use JavaScript to show/hide the field — and move focus to the newly revealed field.</p>
+
+        <h2>Validation</h2>
+        <ul>
+          <li><strong>Validate on blur</strong> — when the user leaves a field, validate it and show any error immediately.</li>
+          <li><strong>Validate on submit</strong> — show all errors when the "Continue" button is pressed.</li>
+          <li><strong>Never validate on keypress</strong> — showing errors while the citizen is still typing is disruptive and creates false error states.</li>
+          <li><strong>Error summary</strong> — on failed submission, show a summary at the top listing all errors. Each error item links to its field.</li>
+        </ul>
+
+        <h2>Error summary demo</h2>
+        <div class="demo demo--column" style="max-width:400px">
+          <div class="error-summary" role="alert" tabindex="-1">
+            <h2>There is a problem</h2>
+            <ul>
+              <li><a href="#first-name">Enter your first name</a></li>
+              <li><a href="#dob">Enter a valid date of birth</a></li>
+            </ul>
+          </div>
+          <div class="form-group" style="margin-top:16px">
+            <label class="form-label" for="first-name-demo">First name</label>
+            <div style="display:flex;align-items:center;gap:6px;color:#d4351c;font-size:14px;font-weight:700;font-family:'Lato',sans-serif;margin-bottom:4px">
+              <span class="material-icons" style="font-size:18px">error</span>Enter your first name
+            </div>
+            <input class="form-input" style="border:2px solid #d4351c" type="text" id="first-name-demo" aria-invalid="true">
+          </div>
+        </div>
+
+        <h2>Save and return</h2>
+        <p>Include a "Save and return later" secondary button on each section screen. On return:</p>
+        <ul>
+          <li>The Before You Begin screen shows completed sections with a "Complete" label.</li>
+          <li>The citizen can resume from any incomplete section.</li>
+          <li>Pre-filled data is retained.</li>
+          <li>Confirmation of what was saved should appear as a notification on return.</li>
+        </ul>
+
+        <h2>Review screen</h2>
+        <p>Before submission, show a full review screen. Each section is summarised with an "Edit" link. Edit links include the section name in their accessible label: "Edit personal details", not just "Edit".</p>
+
+        <h2>Success screen</h2>
+        <p>The confirmation screen must include:</p>
+        <ul>
+          <li>A unique reference number (e.g. SH-2026-00142)</li>
+          <li>Clear next steps ("You will hear from your local authority within 10 working days")</li>
+          <li>An option to print or save the confirmation</li>
+          <li>A return to dashboard link</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--warning">
+          <span class="material-icons" aria-hidden="true">warning</span>
+          <div>Multi-step forms introduce specific accessibility risks: focus management between steps, error announcement, and session timeout. Each of these must be explicitly handled.</div>
+        </div>
+
+        <h2>Accessibility requirements</h2>
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>When the citizen moves to a new step, move focus to the new <code>&lt;h1&gt;</code> or a skip target at the top of the new content. Do not leave focus on the "Continue" button from the previous screen.</span>
+            <span class="criterion">2.4.3 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Update the <code>&lt;title&gt;</code> element when the step changes: "Employment — Social Housing Application". This ensures screen reader users know they are on a new screen.</span>
+            <span class="criterion">2.4.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Error summaries must receive focus immediately after a failed submission attempt. Use <code>tabindex="-1"</code> on the summary and call <code>.focus()</code> in JavaScript.</span>
+            <span class="criterion">3.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Each error in the summary must be a link that jumps to the relevant field: <code>&lt;a href="#field-id"&gt;Error message&lt;/a&gt;</code>. Moving focus to the field is more helpful than scrolling alone.</span>
+            <span class="criterion">3.3.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Conditional fields revealed by JavaScript must be focusable when shown. Move focus to the newly revealed field using <code>.focus()</code> after the DOM update.</span>
+            <span class="criterion">2.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>If the session will expire, warn the citizen at least 20 seconds before timeout with an <code>aria-live="assertive"</code> announcement. Provide options to extend the session or save progress.</span>
+            <span class="criterion">2.2.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The review screen's edit links must have unique accessible labels. "Edit personal details" is unambiguous; "Edit" alone is not (WCAG 2.4.6 requires descriptive headings and labels).</span>
+            <span class="criterion">2.4.6 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The success screen reference number should be announced via <code>aria-live="polite"</code> or be clearly within the reading order of the page so screen reader users do not miss it.</span>
+            <span class="criterion">4.1.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Do not use CAPTCHA or other time-limited challenges in citizen-facing government forms. They create significant barriers for users with cognitive and visual disabilities.</span>
+            <span class="criterion">1.1.1 A / 2.2.1 A</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Step navigation between screens</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">JavaScript</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>function navigateToStep(stepId) {
+  // 1. Update page title
+  document.title = stepTitles[stepId] + ' — Social Housing Application';
+
+  // 2. Show new screen content
+  showScreen(stepId);
+
+  // 3. Move focus to new h1
+  const heading = document.querySelector('#' + stepId + ' h1');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1');
+    heading.focus();
+  }
+}</code></pre>
+        </div>
+
+        <h2>Error summary with focus management</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">JavaScript</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>function handleFormSubmit(event) {
+  event.preventDefault();
+  const errors = validateForm();
+
+  if (errors.length) {
+    // Build error summary
+    showErrorSummary(errors);
+
+    // Move focus to summary
+    const summary = document.querySelector('.error-summary');
+    summary.focus();
+  } else {
+    navigateToStep('review');
+  }
+}
+
+function showErrorSummary(errors) {
+  const summary = document.querySelector('.error-summary');
+  const list = summary.querySelector('ul');
+  list.innerHTML = errors.map(err =>
+    `&lt;li&gt;&lt;a href="#${err.fieldId}"&gt;${err.message}&lt;/a&gt;&lt;/li&gt;`
+  ).join('');
+  summary.hidden = false;
+}</code></pre>
+        </div>
+
+        <h2>Conditional field reveal</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">JavaScript</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>const employmentRadios = document.querySelectorAll('[name="employment"]');
+const employerGroup = document.getElementById('employer-group');
+
+employmentRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.value === 'employed' && radio.checked) {
+      // Reveal conditional field
+      employerGroup.hidden = false;
+
+      // Move focus to the new field
+      const input = employerGroup.querySelector('input');
+      if (input) input.focus();
+    } else {
+      employerGroup.hidden = true;
+    }
+  });
+});</code></pre>
+        </div>
+
+        <h2>Session timeout warning</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML + JS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;!-- Live region for session warnings --&gt;
+&lt;div id="session-warning"
+     aria-live="assertive"
+     aria-atomic="true"
+     class="visually-hidden"&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Warn 2 minutes before session expires
+setTimeout(() => {
+  document.getElementById('session-warning').textContent =
+    'Your session will expire in 2 minutes. ' +
+    'Save your progress to avoid losing your application.';
+}, SESSION_DURATION - 120000);
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Back to start</span>
+        <div class="content-footer__links"><a href="../index.html">← Introduction</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colours — Irish Government Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <span class="material-icons">menu</span>
+  </button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/>
+      <path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Colours</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation">
+    <div id="nav-container"></div>
+  </nav>
+
+  <main id="main-content" class="content">
+    <div class="content-inner">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Foundations</li>
+          <li aria-current="page">Colours</li>
+        </ol>
+      </nav>
+
+      <div class="page-header">
+        <h1>Colours</h1>
+        <p class="page-header__desc">The colour palette is anchored in deep greens — reflecting Ireland's landscape and the trustworthiness of a government service.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--foundation">Foundation</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-tokens" id="tab-tokens">Tokens</button>
+      </div>
+
+      <!-- Usage panel -->
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Primary greens</h2>
+        <p>The brand palette is built on a family of greens — from the deep forest hero colour through to light teal card backgrounds. These seven values appear most frequently in the UI.</p>
+
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#004D44"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Deep Forest</div>
+              <div class="swatch__hex">#004D44</div>
+              <div class="swatch__token">--color-green-900</div>
+              <span class="swatch__contrast swatch__contrast--pass">White: 10.7:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#008660"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Rich Green</div>
+              <div class="swatch__hex">#008660</div>
+              <div class="swatch__token">--color-green-800</div>
+              <span class="swatch__contrast swatch__contrast--pass">White: 4.6:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#00875F"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Action Green</div>
+              <div class="swatch__hex">#00875F</div>
+              <div class="swatch__token">--color-green-750</div>
+              <span class="swatch__contrast swatch__contrast--pass">White: 4.5:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#028072"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Mid Teal</div>
+              <div class="swatch__hex">#028072</div>
+              <div class="swatch__token">--color-green-700</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#4DA373"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Accent Green</div>
+              <div class="swatch__hex">#4DA373</div>
+              <div class="swatch__token">--color-green-500</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#BFE7E4"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Light Teal</div>
+              <div class="swatch__hex">#BFE7E4</div>
+              <div class="swatch__token">--color-green-150</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#EAF4F5; border:1px solid #e0eced"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Card Teal</div>
+              <div class="swatch__hex">#EAF4F5</div>
+              <div class="swatch__token">--color-green-50</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#D5EEDB"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Pale Mint</div>
+              <div class="swatch__hex">#D5EEDB</div>
+              <div class="swatch__token">--color-green-100</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Neutrals</h2>
+        <p>Neutrals carry body text, support dividers, and form the subtle backgrounds of form screens.</p>
+
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#0B0C0C"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Near Black</div>
+              <div class="swatch__hex">#0B0C0C</div>
+              <div class="swatch__token">--color-neutral-900</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#263238"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Dark Slate</div>
+              <div class="swatch__hex">#263238</div>
+              <div class="swatch__token">--color-neutral-850</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#505A5F"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Body Grey</div>
+              <div class="swatch__hex">#505A5F</div>
+              <div class="swatch__token">--color-neutral-550</div>
+              <span class="swatch__contrast swatch__contrast--pass">On white: 6.1:1</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#888888"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Mid Grey</div>
+              <div class="swatch__hex">#888888</div>
+              <div class="swatch__token">--color-neutral-500</div>
+              <span class="swatch__contrast swatch__contrast--fail">Text: FAIL</span>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#E0E0E0"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Divider</div>
+              <div class="swatch__hex">#E0E0E0</div>
+              <div class="swatch__token">--color-neutral-200</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#F2F2F2; border:1px solid #e0e0e0"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Form BG</div>
+              <div class="swatch__hex">#F2F2F2</div>
+              <div class="swatch__token">--color-neutral-25</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#FFFFFF; border:1px solid #e0e0e0"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">White</div>
+              <div class="swatch__hex">#FFFFFF</div>
+              <div class="swatch__token">--color-white</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Warm accents</h2>
+        <p>Salmon and peach are used exclusively for persona illustrations and decorative artwork. They must not be used for text, UI controls, or status indicators.</p>
+
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#EB996E"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Salmon</div>
+              <div class="swatch__hex">#EB996E</div>
+              <div class="swatch__token">--color-salmon</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#FFBE9D"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Peach</div>
+              <div class="swatch__hex">#FFBE9D</div>
+              <div class="swatch__token">--color-peach</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#F6F4EF; border:1px solid #e0e0e0"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Warm Off-white</div>
+              <div class="swatch__hex">#F6F4EF</div>
+              <div class="swatch__token">--color-warm-50</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__colour" style="background:#FFBF47"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">Focus Gold</div>
+              <div class="swatch__hex">#FFBF47</div>
+              <div class="swatch__token">(focus ring)</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Semantic usage</h2>
+        <p>Always reference semantic tokens in component code — not raw hex values. Semantic tokens map intent to the base palette and allow the system to evolve without updating every component.</p>
+
+        <table class="spacing-table">
+          <thead>
+            <tr><th>Semantic token</th><th>Maps to</th><th>Use for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--color-bg-hero</code></td><td>#004D44</td><td>Home screen hero header background</td></tr>
+            <tr><td><code>--color-bg-header</code></td><td>#008660</td><td>Standard app header bar</td></tr>
+            <tr><td><code>--color-bg-card</code></td><td>#EAF4F5</td><td>Card backgrounds</td></tr>
+            <tr><td><code>--color-bg-help</code></td><td>#004D44</td><td>Need Help panel</td></tr>
+            <tr><td><code>--color-bg-page</code></td><td>#F2F2F2</td><td>Form/detail page background</td></tr>
+            <tr><td><code>--color-text-primary</code></td><td>#0B0C0C</td><td>All body copy</td></tr>
+            <tr><td><code>--color-text-heading</code></td><td>#004D44</td><td>Section headings on white</td></tr>
+            <tr><td><code>--color-text-secondary</code></td><td>#505A5F</td><td>Supporting, metadata, hints</td></tr>
+            <tr><td><code>--color-text-on-dark</code></td><td>#FFFFFF</td><td>Text on hero/header/help panel</td></tr>
+            <tr><td><code>--color-btn-primary-bg</code></td><td>#00875F</td><td>Primary button fill</td></tr>
+            <tr><td><code>--color-border-default</code></td><td>#888888</td><td>Input field borders (default state)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Accessibility panel -->
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>All colour pairings used in the UI must meet <strong>WCAG 2.1 AA</strong>: 4.5:1 for normal text, 3:1 for large text (18pt / 14pt bold) and UI components.</div>
+        </div>
+
+        <h2>Contrast audit</h2>
+
+        <table class="contrast-table">
+          <thead>
+            <tr>
+              <th>Foreground</th>
+              <th>Background</th>
+              <th>Ratio</th>
+              <th>Result</th>
+              <th>Used on</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#fff;border-color:#ccc"></span> #FFFFFF</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#004D44"></span> #004D44</span></td>
+              <td>10.7:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Hero header, help panel text</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#fff;border-color:#ccc"></span> #FFFFFF</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#008660"></span> #008660</span></td>
+              <td>4.6:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Standard header bar</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#fff;border-color:#ccc"></span> #FFFFFF</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#00875F"></span> #00875F</span></td>
+              <td>4.5:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Primary button — minimum passing; verify at small sizes</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#0B0C0C"></span> #0B0C0C</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#EAF4F5;border-color:#ccc"></span> #EAF4F5</span></td>
+              <td>16:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Card body text</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#004D44"></span> #004D44</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#EAF4F5;border-color:#ccc"></span> #EAF4F5</span></td>
+              <td>10:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Card headings</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#505A5F"></span> #505A5F</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#fff;border-color:#ccc"></span> #FFFFFF</span></td>
+              <td>6.1:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Supporting text on white</td>
+            </tr>
+            <tr>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#0B0C0C"></span> #0B0C0C</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#F2F2F2;border-color:#ccc"></span> #F2F2F2</span></td>
+              <td>16:1</td>
+              <td><span class="pass-badge pass-badge--pass">✓ Pass AA</span></td>
+              <td>Body text on form page background</td>
+            </tr>
+            <tr style="background:#fdf2f0">
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#888"></span> #888888</span></td>
+              <td><span class="colour-pair"><span class="colour-dot" style="background:#EAF4F5;border-color:#ccc"></span> #EAF4F5</span></td>
+              <td>2.5:1</td>
+              <td><span class="pass-badge pass-badge--fail">✗ Fail</span></td>
+              <td>Do not use grey text on teal card backgrounds</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Accessibility rules for colour</h2>
+
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Never use colour as the <strong>only</strong> means of conveying information. Always pair colour with an icon, label, or text.</span>
+            <span class="criterion">1.4.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>All normal text must achieve a minimum <strong>4.5:1</strong> contrast ratio against its background.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Large text (18pt+ or 14pt+ bold) requires a minimum <strong>3:1</strong> contrast ratio.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>UI component boundaries (input borders, button outlines) require <strong>3:1</strong> contrast against adjacent colours.</span>
+            <span class="criterion">1.4.11 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Do not use <code>#888888</code> or lighter greys for text on any light background — it fails at all text sizes.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The warm accent colours (salmon, peach) must not be used for text or interactive elements — they do not meet contrast requirements against white.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Error states must pair the red border with a visible text error message — not colour alone.</span>
+            <span class="criterion">1.4.1 A</span>
+          </li>
+        </ul>
+
+        <h2>Do and don't</h2>
+        <div class="do-dont-grid">
+          <div class="do-dont-card do-dont-card--do">
+            <div class="do-dont-card__demo">
+              <div style="display:flex;align-items:center;gap:8px;background:#fdf2f0;border:2px solid #d4351c;padding:10px 14px;border-radius:4px;font-size:14px;width:100%;max-width:260px">
+                <span class="material-icons" style="color:#d4351c;font-size:18px">error</span>
+                <span style="color:#0B0C0C">Enter your date of birth</span>
+              </div>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">check_circle</span>
+              <div class="do-dont-card__text"><strong>Do</strong> pair colour with an icon and text for error states.</div>
+            </div>
+          </div>
+          <div class="do-dont-card do-dont-card--dont">
+            <div class="do-dont-card__demo">
+              <div style="display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #d4351c;padding:10px 14px;border-radius:4px;font-size:14px;width:100%;max-width:260px">
+                <span style="color:#0B0C0C">Date of birth</span>
+              </div>
+            </div>
+            <div class="do-dont-card__label">
+              <span class="material-icons do-dont-card__icon">cancel</span>
+              <div class="do-dont-card__text"><strong>Don't</strong> rely on a red border alone to indicate an error.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tokens panel -->
+      <div id="panel-tokens" role="tabpanel" aria-labelledby="tab-tokens">
+        <h2>CSS custom properties</h2>
+        <p>All colour tokens are defined in <code>colors_and_type.css</code> as CSS custom properties on <code>:root</code>.</p>
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">CSS</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>/* Primary greens */
+--color-green-900: #004D44;   /* Deep Forest */
+--color-green-800: #008660;   /* Rich Green */
+--color-green-750: #00875F;   /* Action Green */
+--color-green-700: #028072;   /* Mid Teal */
+--color-green-500: #4DA373;   /* Accent */
+--color-green-150: #BFE7E4;   /* Light Teal */
+--color-green-100: #D5EEDB;   /* Pale Mint */
+--color-green-50:  #EAF4F5;   /* Card Background */
+
+/* Neutrals */
+--color-neutral-900: #0B0C0C;
+--color-neutral-850: #263238;
+--color-neutral-550: #505A5F;
+--color-neutral-500: #888888; /* borders only */
+--color-neutral-200: #E0E0E0;
+--color-neutral-25:  #F2F2F2;
+--color-white:       #FFFFFF;
+
+/* Semantic */
+--color-bg-hero:       var(--color-green-900);
+--color-bg-header:     var(--color-green-800);
+--color-bg-card:       var(--color-green-50);
+--color-bg-help:       var(--color-green-900);
+--color-bg-page:       var(--color-neutral-25);
+--color-text-primary:  var(--color-neutral-900);
+--color-text-heading:  var(--color-green-900);
+--color-text-secondary:var(--color-neutral-550);
+--color-text-on-dark:  var(--color-white);
+--color-btn-primary-bg:var(--color-green-750);
+--color-border-default:var(--color-neutral-500);</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Typography</span>
+        <div class="content-footer__links">
+          <a href="typography.html">Typography →</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction — Irish Government Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>window.DOCS_ROOT = './';</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top bar -->
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <span class="material-icons">menu</span>
+  </button>
+  <a href="index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/>
+      <path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Introduction</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+
+<div class="layout">
+  <!-- Sidebar -->
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation">
+    <div id="nav-container"></div>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main-content" class="content">
+    <div class="content-inner">
+
+      <!-- Hero -->
+      <div class="page-header">
+        <h1>Irish Government Design System</h1>
+        <p class="page-header__desc">
+          A shared design language for Irish Government digital services — built for the Life Events project and the Social Housing Application.
+        </p>
+        <div class="page-header__tags">
+          <span class="tag tag--wcag">WCAG 2.1 AA</span>
+          <span class="tag tag--foundation">Mobile-first · 390px</span>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Overview -->
+      <h2>What is this?</h2>
+      <p>
+        This design system provides the visual language, components, and patterns used to build citizen-facing digital services for the Irish Government. It was developed for the <strong>Life Events</strong> discovery project — led by the Department of Public Expenditure and Reform (DPENDR), with design by Deloitte — and is centred on the <strong>Social Housing Application</strong> as the primary product in scope.
+      </p>
+      <p>
+        The system covers everything from colour tokens and typography to full interaction patterns, with accessibility built into every component from the ground up.
+      </p>
+
+      <div class="callout callout--info">
+        <span class="material-icons" aria-hidden="true">info</span>
+        <div>
+          All public-facing components in this system are designed to meet <strong>WCAG 2.1 Level AA</strong>. Accessibility notes are included on every component and pattern page.
+        </div>
+      </div>
+
+      <h2>What's included</h2>
+      <div class="card-grid">
+        <a href="foundations/colours.html" class="doc-card">
+          <div class="doc-card__icon"><span class="material-icons">palette</span></div>
+          <div class="doc-card__body">
+            <div class="doc-card__title">Foundations</div>
+            <div class="doc-card__desc">Colour palette, typography scale, spacing system, and iconography.</div>
+          </div>
+          <div class="doc-card__arrow">Explore <span class="material-icons">arrow_forward</span></div>
+        </a>
+        <a href="components/button.html" class="doc-card">
+          <div class="doc-card__icon"><span class="material-icons">widgets</span></div>
+          <div class="doc-card__body">
+            <div class="doc-card__title">Components</div>
+            <div class="doc-card__desc">Buttons, cards, form fields, header, help panel, and navigation.</div>
+          </div>
+          <div class="doc-card__arrow">Explore <span class="material-icons">arrow_forward</span></div>
+        </a>
+        <a href="patterns/housing-application.html" class="doc-card">
+          <div class="doc-card__icon"><span class="material-icons">account_tree</span></div>
+          <div class="doc-card__body">
+            <div class="doc-card__title">Patterns</div>
+            <div class="doc-card__desc">Full interaction patterns for the housing application and multi-step forms.</div>
+          </div>
+          <div class="doc-card__arrow">Explore <span class="material-icons">arrow_forward</span></div>
+        </a>
+        <a href="getting-started.html" class="doc-card">
+          <div class="doc-card__icon"><span class="material-icons">rocket_launch</span></div>
+          <div class="doc-card__body">
+            <div class="doc-card__title">Getting started</div>
+            <div class="doc-card__desc">Set up fonts, CSS tokens, and use the React component library.</div>
+          </div>
+          <div class="doc-card__arrow">Get started <span class="material-icons">arrow_forward</span></div>
+        </a>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2>Design principles</h2>
+
+      <h3>Citizen-first</h3>
+      <p>Every design decision begins with the citizen's needs. Services speak directly to people in warm, plain English — second person throughout, no jargon, no bureaucratic framing. People dealing with major life events need clarity, not complexity.</p>
+
+      <h3>Accessible by default</h3>
+      <p>Accessibility is not a layer added at the end — it is a requirement embedded in every token, component, and pattern. The minimum target is WCAG 2.1 AA for all public-facing surfaces. This means correct colour contrast, visible focus states, keyboard navigation, screen reader support, and meaningful touch targets on every interactive element.</p>
+
+      <h3>Mobile-first</h3>
+      <p>The Social Housing Application is designed for a 390px mobile canvas. Citizens will apply for housing on the phone they have — often in challenging circumstances. Every component is built for thumb-friendly use with one hand, in interrupted sessions, on varying network quality.</p>
+
+      <h3>Consistent and trustworthy</h3>
+      <p>The Irish Government Harp mark and the deep green brand palette signal to citizens that they are using a genuine government service. Consistent patterns across screens reduce cognitive load and build trust. Deviating from the system undermines both.</p>
+
+      <h3>Plain English</h3>
+      <p>Sentence case on all labels and CTAs. Action-oriented copy. Time estimates before multi-step flows. Complex government terms explained inline. No emoji. No title case. No passive voice. The Irish Government Tone of Voice guidelines apply throughout.</p>
+
+      <hr class="section-divider">
+
+      <h2>Products in scope</h2>
+
+      <h3>Social Housing Application (primary)</h3>
+      <p>A mobile-first (390px) citizen-facing application for applying for social housing in a single, streamlined flow. Screens include: Home, Before You Begin, Personal Details, Employment, Income, Housing Requirements, Previous Housing, Success, Profile, and a 15-month review.</p>
+
+      <h3>Service blueprints and journey maps</h3>
+      <p>Internal DPENDR/Deloitte worksheets mapping as-is and target service journeys. These use separate visual conventions (swimlane diagrams, qualitative annotations) and are not covered by this component system.</p>
+
+      <hr class="section-divider">
+
+      <h2>Credits</h2>
+      <p>Designed by Deloitte for the Irish Department of Public Expenditure and Reform (DPENDR). Source: <em>Social Housing — Part 2 — DEPR Figma file</em>, © 2022 Deloitte Global.</p>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Irish Government Design System v1.0</span>
+        <div class="content-footer__links">
+          <a href="getting-started.html">Getting started →</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>

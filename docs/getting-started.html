@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — Irish Government Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>window.DOCS_ROOT = './';</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+    <span class="material-icons">menu</span>
+  </button>
+  <a href="index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/>
+      <path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Getting started</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation">
+    <div id="nav-container"></div>
+  </nav>
+
+  <main id="main-content" class="content">
+    <div class="content-inner">
+
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Getting started</li>
+        </ol>
+      </nav>
+
+      <div class="page-header">
+        <h1>Getting started</h1>
+        <p class="page-header__desc">Set up the design system in your project — from CSS tokens to React components.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-designers" id="tab-designers">For designers</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-developers" id="tab-developers">For developers</button>
+      </div>
+
+      <div id="panel-designers" role="tabpanel" aria-labelledby="tab-designers">
+        <h2>Figma source file</h2>
+        <p>The design source is <strong>Social Housing — Part 2 — DEPR.fig</strong>. The Figma file contains:</p>
+        <ul>
+          <li><strong>Assets page</strong> — all shared components, icons, and illustrations</li>
+          <li><strong>Prototypes-Final</strong> — 15 mobile screens (390px wide) representing the full application flow</li>
+          <li><strong>Personas</strong>, <strong>As-Is Journey</strong>, <strong>Service Blueprint</strong> — internal research artefacts, not UI components</li>
+        </ul>
+
+        <h2>Design tokens in Figma</h2>
+        <p>Colour styles, text styles, and effect styles in Figma mirror the CSS custom properties in <code>colors_and_type.css</code>. When creating new screens:</p>
+        <ul>
+          <li>Always apply colour styles from the shared library — do not use local fills with raw hex values.</li>
+          <li>Use text styles for all type — do not override size, weight, or colour individually.</li>
+          <li>Components are published from the Assets page — use instances, do not detach unless absolutely necessary.</li>
+        </ul>
+
+        <h2>Canvas and frame setup</h2>
+        <ul>
+          <li>All app screens use a <strong>390×844px</strong> frame (iPhone 14 Pro size).</li>
+          <li>Horizontal margin: <strong>16px</strong> each side.</li>
+          <li>Status bar height: <strong>24px</strong>.</li>
+          <li>Use <strong>Auto Layout</strong> on all components for consistent spacing.</li>
+        </ul>
+
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">palette</span>
+          <div>All colour values, type styles, and spacing are documented in the <a href="foundations/colours.html">Foundations</a> section of this site with the exact Figma style names and CSS token equivalents.</div>
+        </div>
+
+        <h2>Handoff checklist</h2>
+        <ul>
+          <li>All layers named clearly (not "Rectangle 47")</li>
+          <li>Colours and text applied via shared styles only</li>
+          <li>Spacing uses 8px grid — check with Layout Grid overlay</li>
+          <li>Interactive states (focus, hover, error) included for all interactive elements</li>
+          <li>Accessibility annotations added: heading levels, ARIA roles, alt text notes for images</li>
+          <li>Contrast checked using the Figma Contrast plugin against WCAG 2.1 AA ratios</li>
+        </ul>
+      </div>
+
+      <div id="panel-developers" role="tabpanel" aria-labelledby="tab-developers">
+        <h2>1. Load fonts</h2>
+        <p>The system uses <strong>Lato</strong> from Google Fonts. Load all weights used in the system:</p>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">HTML</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&amp;display=swap"
+      rel="stylesheet"&gt;</code></pre>
+        </div>
+
+        <h2>2. Load CSS tokens</h2>
+        <p>Import <code>colors_and_type.css</code> once in your document. All design tokens are available as CSS custom properties on <code>:root</code>.</p>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">HTML</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>&lt;link rel="stylesheet" href="path/to/colors_and_type.css"&gt;</code></pre>
+        </div>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">CSS</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>.my-component {
+  background-color: var(--color-bg-card);
+  color:            var(--color-text-primary);
+  font-size:        var(--text-body);
+  padding:          var(--card-padding);
+  border-radius:    var(--radius-card);
+  box-shadow:       var(--shadow-card);
+}</code></pre>
+        </div>
+
+        <h2>3. Load Material Icons</h2>
+        <p>The system uses Material Icons (outlined) as the icon set:</p>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">HTML</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>&lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+
+&lt;!-- Usage --&gt;
+&lt;span class="material-icons" aria-hidden="true"&gt;arrow_forward&lt;/span&gt;</code></pre>
+        </div>
+
+        <h2>4. Page structure</h2>
+        <p>Every page must include a skip link, correct lang attribute, and landmark regions:</p>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">HTML</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Page title — Service name&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- Skip link: first focusable element --&gt;
+  &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
+
+  &lt;header role="banner"&gt;
+    &lt;!-- App header --&gt;
+  &lt;/header&gt;
+
+  &lt;main id="main-content"&gt;
+    &lt;h1&gt;Page title&lt;/h1&gt;
+    &lt;!-- Page content --&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- Help panel --&gt;
+  &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <h2>5. Focus ring</h2>
+        <p>Apply the gold GOV.UK-style focus ring globally. This is required for keyboard accessibility:</p>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">CSS</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>/* Show for keyboard users only */
+*:focus-visible {
+  outline: 3px solid #FFBF47;
+  outline-offset: 2px;
+}
+
+/* Remove for mouse/pointer users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}</code></pre>
+        </div>
+
+        <h2>6. React component library</h2>
+        <p>Pre-built components are in <code>ui_kits/social-housing/</code>. They use Babel standalone and can be embedded directly in HTML or imported into a React project.</p>
+
+        <div class="prop-table" style="overflow:auto">
+          <table class="prop-table">
+            <thead>
+              <tr><th>File</th><th>Components</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>Header.jsx</code></td><td>AppHeader, HeroHeader</td></tr>
+              <tr><td><code>Button.jsx</code></td><td>PrimaryButton, SecondaryButton, TertiaryButton, BackLink, Chip</td></tr>
+              <tr><td><code>Card.jsx</code></td><td>ServiceCard, ApplicationCard, InfoSectionCard, StepCard, HelpPanel</td></tr>
+              <tr><td><code>FormField.jsx</code></td><td>FormField, SelectField, RadioGroup, CheckboxGroup, FormSection</td></tr>
+              <tr><td><code>Navigation.jsx</code></td><td>BottomNav, BackLink</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>7. File structure reference</h2>
+        <div class="code-block">
+          <div class="code-block__header">
+            <span class="code-block__lang">Text</span>
+            <button class="code-block__copy">Copy</button>
+          </div>
+          <pre><code>colors_and_type.css          ← All CSS custom properties
+assets/
+  logo-deloitte.jpg
+  hero-overlay.png             ← Hero header texture
+  illustration-house.png
+  illustration-person.png
+  illustration-frame.png
+  illustration-icon.png
+ui_kits/social-housing/
+  index.html                   ← Interactive 5-screen prototype
+  Header.jsx
+  Button.jsx
+  Card.jsx
+  FormField.jsx
+  Navigation.jsx
+docs/                          ← This documentation site</code></pre>
+        </div>
+
+        <div class="callout callout--warning">
+          <span class="material-icons" aria-hidden="true">warning</span>
+          <div>The icon set in the React components uses <strong>Material Icons</strong> as a substitution for the original custom Figma icon set. Flag this to the design team if pixel-perfect icon fidelity is needed for production.</div>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next: Foundations</span>
+        <div class="content-footer__links">
+          <a href="foundations/colours.html">Colours →</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="nav.js"></script>
+</body>
+</html>

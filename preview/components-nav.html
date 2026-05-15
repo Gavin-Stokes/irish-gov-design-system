@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 20px 24px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin: 16px 0 8px; }
+  .section-label:first-child { margin-top: 0; }
+  .row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 4px; color: #004D44; font-size: 16px; text-decoration: none; cursor: pointer; background: none; border: none; font-family: 'Lato'; padding: 8px 0; }
+  .back-link:hover { color: #002E28; }
+  .back-link .material-icons { font-size: 22px; text-decoration: none; }
+  .back-link .back-text { text-decoration: underline; }
+
+  /* Wizard progress */
+  .wizard { display: flex; align-items: center; gap: 0; width: 100%; max-width: 500px; }
+  .wizard-step { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+  .step-circle {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .step-complete { background: #004D44; color: #fff; }
+  .step-active   { background: #008660; color: #fff; border: 2px solid #008660; }
+  .step-inactive { background: #fff; color: #888; border: 2px solid #CCCCCC; }
+  .step-label { font-size: 10px; color: #505A5F; text-align: center; }
+  .step-line { flex: 1; height: 2px; background: #CCCCCC; margin-bottom: 18px; }
+  .step-line-done { background: #004D44; }
+
+  /* Bottom nav */
+  .bottom-nav {
+    display: flex; background: #fff; border-top: 1px solid #E0E0E0;
+    width: 390px; padding: 8px 0 4px;
+  }
+  .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; }
+  .nav-item .material-icons { font-size: 24px; color: #888; }
+  .nav-item.active .material-icons { color: #004D44; }
+  .nav-item span.nav-label { font-size: 11px; color: #888; }
+  .nav-item.active span.nav-label { color: #004D44; font-weight: 700; }
+
+  /* Section navigation tabs */
+  .section-tabs { display: flex; border-bottom: 2px solid #E0E0E0; gap: 0; }
+  .tab { padding: 10px 16px; font-size: 14px; font-weight: 400; color: #505A5F; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .tab.active { color: #004D44; font-weight: 700; border-bottom-color: #004D44; }
+  .tab:hover { color: #004D44; }
+</style>
+</head>
+<body>
+  <div class="section-label">Back Link</div>
+  <div class="row">
+    <button class="back-link"><span class="material-icons">chevron_left</span><span class="back-text"> Home</span></button>
+    <button class="back-link"><span class="material-icons">chevron_left</span><span class="back-text"> Personal details</span></button>
+    <button class="back-link" style="color:#EAF4F5;background:#004D44;padding:8px 12px;border-radius:4px"><span class="material-icons">chevron_left</span><span class="back-text" style="text-decoration-color:#EAF4F5"> Back</span></button>
+  </div>
+
+  <div class="section-label">Wizard / Progress Stepper</div>
+  <div class="wizard">
+    <div class="wizard-step">
+      <div class="step-circle step-complete"><span class="material-icons" style="font-size:16px">check</span></div>
+      <div class="step-label">Personal</div>
+    </div>
+    <div class="step-line step-line-done"></div>
+    <div class="wizard-step">
+      <div class="step-circle step-complete"><span class="material-icons" style="font-size:16px">check</span></div>
+      <div class="step-label">Employment</div>
+    </div>
+    <div class="step-line step-line-done"></div>
+    <div class="wizard-step">
+      <div class="step-circle step-active">3</div>
+      <div class="step-label">Income</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="wizard-step">
+      <div class="step-circle step-inactive">4</div>
+      <div class="step-label">Housing</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="wizard-step">
+      <div class="step-circle step-inactive">5</div>
+      <div class="step-label">Previous</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="wizard-step">
+      <div class="step-circle step-inactive">6</div>
+      <div class="step-label">Review</div>
+    </div>
+  </div>
+
+  <div class="section-label">Section Navigation Tabs</div>
+  <div class="section-tabs">
+    <div class="tab active">Personal Details</div>
+    <div class="tab">Nationality Details</div>
+    <div class="tab">Income Details</div>
+  </div>
+
+  <div class="section-label">Bottom Navigation Bar</div>
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <span class="material-icons">home</span>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-icons">description</span>
+      <span class="nav-label">Applications</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-icons">support_agent</span>
+      <span class="nav-label">Help</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-icons">account_circle</span>
+      <span class="nav-label">Profile</span>
+    </div>
+  </div>
+</body>
+</html>

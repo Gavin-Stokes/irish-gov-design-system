@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #F5F5F5; padding: 20px; }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .asset-card {
+    background: #fff; border-radius: 8px; padding: 16px;
+    display: flex; flex-direction: column; gap: 8px; align-items: center;
+    min-width: 120px;
+  }
+  .asset-card img { max-width: 90px; max-height: 90px; object-fit: contain; }
+  .label { font-size: 10px; font-weight: 700; color: #505A5F; text-align: center; letter-spacing: 0.05em; text-transform: uppercase; }
+  .sub { font-size: 9px; color: #aaa; text-align: center; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin: 12px 0 8px; }
+  .section-label:first-child { margin-top: 0; }
+
+  /* Palette chips showing illustration colors */
+  .palette { display: flex; gap: 4px; margin-top: 4px; }
+  .pchip { width: 16px; height: 16px; border-radius: 3px; }
+
+  /* Hero overlay preview */
+  .hero-preview {
+    width: 200px; height: 90px; border-radius: 8px;
+    background: #004D44; position: relative; overflow: hidden;
+  }
+  .hero-preview .overlay {
+    position: absolute; inset: 0;
+    background: url('../assets/hero-overlay.png') center/cover;
+    opacity: 0.8; mix-blend-mode: overlay;
+  }
+  .hero-preview .text {
+    position: relative; padding: 12px;
+    font-size: 14px; font-weight: 700; color: #fff;
+  }
+</style>
+</head>
+<body>
+  <div class="section-label">Illustration Assets</div>
+  <div class="row">
+    <div class="asset-card">
+      <img src="../assets/illustration-house.png" alt="House illustration">
+      <div class="label">Housing</div>
+      <div class="sub">Card accent (top-right)</div>
+      <div class="palette">
+        <div class="pchip" style="background:#004D44"></div>
+        <div class="pchip" style="background:#9AE1DA"></div>
+        <div class="pchip" style="background:#6DD7C0"></div>
+      </div>
+    </div>
+    <div class="asset-card">
+      <img src="../assets/illustration-person.png" alt="Person illustration">
+      <div class="label">Carer / Person</div>
+      <div class="sub">Card accent</div>
+      <div class="palette">
+        <div class="pchip" style="background:#004D44"></div>
+        <div class="pchip" style="background:#EB996E"></div>
+        <div class="pchip" style="background:#9AE1DA"></div>
+      </div>
+    </div>
+    <div class="asset-card">
+      <img src="../assets/illustration-icon.png" alt="Icon illustration">
+      <div class="label">Service Icon</div>
+      <div class="sub">Small card accent</div>
+      <div class="palette">
+        <div class="pchip" style="background:#004D44"></div>
+        <div class="pchip" style="background:#9AE1DA"></div>
+      </div>
+    </div>
+    <div class="asset-card">
+      <img src="../assets/illustration-frame.png" alt="Decorative frame">
+      <div class="label">Decorative Frame</div>
+      <div class="sub">Background texture</div>
+    </div>
+  </div>
+  <div class="section-label">Hero Background Treatment</div>
+  <div class="row">
+    <div class="hero-preview">
+      <div class="overlay"></div>
+      <div class="text">Good Morning David</div>
+    </div>
+    <div style="max-width:300px;font-size:12px;color:#505A5F;line-height:1.6;padding-top:8px">
+      <strong>Overlay technique:</strong> Deep green base (<code>#004D44</code>) with photographic texture at <strong>80% opacity</strong>, <code>mix-blend-mode: overlay</code>. Creates depth without distracting from text. Used only on the home/hero screen.
+    </div>
+  </div>
+  <div class="section-label">Illustration Colour Palette</div>
+  <div class="row" style="gap:8px">
+    <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
+      <div style="width:48px;height:48px;background:#004D44;border-radius:4px"></div>
+      <div style="font-size:9px;color:#888;font-weight:700">Primary</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
+      <div style="width:48px;height:48px;background:#9AE1DA;border-radius:4px"></div>
+      <div style="font-size:9px;color:#888;font-weight:700">Teal Light</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
+      <div style="width:48px;height:48px;background:#6DD7C0;border-radius:4px"></div>
+      <div style="font-size:9px;color:#888;font-weight:700">Seafoam</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
+      <div style="width:48px;height:48px;background:#EB996E;border-radius:4px"></div>
+      <div style="font-size:9px;color:#888;font-weight:700">Salmon</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:3px;align-items:center">
+      <div style="width:48px;height:48px;background:#FFBE9D;border-radius:4px"></div>
+      <div style="font-size:9px;color:#888;font-weight:700">Peach</div>
+    </div>
+  </div>
+</body>
+</html>

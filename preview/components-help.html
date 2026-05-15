@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #F2F2F2; padding: 0; }
+  .help-panel {
+    background: #004D44; width: 390px; padding: 40px 16px 48px;
+  }
+  .help-title { font-size: 28px; font-weight: 700; color: #EAF4F5; margin-bottom: 20px; }
+  .divider { height: 1px; background: rgba(255,255,255,0.3); margin: 20px 0; }
+  .help-row { display: flex; align-items: flex-start; gap: 16px; justify-content: space-between; }
+  .help-text p { font-size: 16px; color: #EAF4F5; line-height: 1.5; }
+  .help-text strong { font-weight: 700; }
+  .avatar-circle {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 3px solid #EAF4F5; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1); position: relative;
+  }
+  .online-dot {
+    width: 14px; height: 14px; background: #19B729;
+    border-radius: 50%; border: 3px solid #fff;
+    position: absolute; top: 2px; right: 2px;
+  }
+  .phone-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .phone-row span { color: #EAF4F5; font-size: 16px; }
+  .btn-help {
+    display: block; width: 100%; background: #EAF4F5; color: #004D44;
+    border: none; border-radius: 4px; font-family: 'Lato'; font-size: 16px;
+    font-weight: 700; padding: 16px; text-align: center; cursor: pointer;
+    margin-top: 16px;
+  }
+  .link-help { font-size: 16px; font-weight: 700; color: #EAF4F5; text-decoration: underline; cursor: pointer; display: block; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <div class="help-panel">
+    <div class="help-title">Need Help?</div>
+
+    <div class="help-row">
+      <div class="help-text"><p>Can we help right now?<br>Chat with our digital assistant.</p></div>
+      <div class="avatar-circle">
+        <span class="material-icons" style="color:#EAF4F5;font-size:28px">support_agent</span>
+        <div class="online-dot"></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="help-text">
+      <p><strong>Give us a call</strong><br>Our Centralised Service Line can quickly direct you to any government service.</p>
+      <div class="phone-row">
+        <span class="material-icons" style="color:#EAF4F5;font-size:20px">phone</span>
+        <span>1800 XXX XXX</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="help-text">
+      <p><strong>Chat with someone in person</strong><br>With Quick Meet you can schedule a meeting in your local Services Hub or arrange a video link. It's superfast!</p>
+      <button class="btn-help">Let's schedule a call</button>
+      <a class="link-help">Discover more in FAQs</a>
+    </div>
+  </div>
+</body>
+</html>

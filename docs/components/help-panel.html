@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Panel — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    .help-demo { background:#004D44; border-radius:8px; overflow:hidden; max-width:360px; width:100%; }
+    .help-demo__heading { font-size:18px; font-weight:700; color:#fff; font-family:'Lato',sans-serif; padding:20px 20px 12px; }
+    .help-demo__row { display:flex; align-items:center; gap:12px; padding:14px 20px; border-top:1px solid rgba(255,255,255,0.2); color:#EAF4F5; font-size:15px; font-family:'Lato',sans-serif; text-decoration:none; cursor:pointer; }
+    .help-demo__row .material-icons { font-size:20px; color:rgba(255,255,255,0.7); flex-shrink:0; }
+    .help-demo__row strong { display:block; font-size:14px; color:#fff; margin-bottom:2px; font-family:'Lato',sans-serif; }
+    .help-demo__row span.sub { font-size:12px; color:rgba(255,255,255,0.65); }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Help panel</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Components</li><li aria-current="page">Help panel</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Help panel</h1>
+        <p class="page-header__desc">A persistent footer panel that gives citizens access to support throughout the application journey.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--component">Component</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Anatomy</h2>
+        <div class="demo demo--centered">
+          <div class="help-demo">
+            <div class="help-demo__heading">Need help?</div>
+            <a href="#" class="help-demo__row">
+              <span class="material-icons">chat</span>
+              <div><strong>Chat with our digital assistant</strong><span class="sub">Available 24/7</span></div>
+            </a>
+            <a href="tel:+35318882000" class="help-demo__row">
+              <span class="material-icons">phone</span>
+              <div><strong>Call us</strong><span class="sub">+353 1 888 2000 · Mon–Fri 9am–5pm</span></div>
+            </a>
+            <a href="#" class="help-demo__row">
+              <span class="material-icons">open_in_new</span>
+              <div><strong>Privacy policy</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <h2>Content slots</h2>
+        <table class="spacing-table">
+          <thead><tr><th>Slot</th><th>Content</th><th>Required</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td>"Need help?" — fixed copy</td><td>Yes</td></tr>
+            <tr><td>Digital assistant</td><td>Chat link with availability hours</td><td>Yes</td></tr>
+            <tr><td>Phone number</td><td>Displayed as <code>tel:</code> link with international prefix</td><td>Recommended</td></tr>
+            <tr><td>Privacy link</td><td>Link to service privacy policy</td><td>Yes</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Styling</h2>
+        <ul>
+          <li>Background: <code>#004D44</code> (Deep Forest Green) — same as hero</li>
+          <li>Dividers between rows: <code>1px solid rgba(255,255,255,0.2)</code></li>
+          <li>Text colour: <code>#EAF4F5</code> (light teal) — achieves sufficient contrast on dark green</li>
+          <li>Icons: white, 20px</li>
+          <li>No outer shadow — the panel is full-width and butts against the screen edge</li>
+        </ul>
+
+        <h2>When to use</h2>
+        <ul>
+          <li>Include the help panel on every screen of the application flow.</li>
+          <li>Limit to two or three support options maximum — the panel should be concise, not comprehensive.</li>
+          <li>Always include the digital assistant as the first option to reduce phone call volume.</li>
+        </ul>
+
+        <h2>When not to use</h2>
+        <ul>
+          <li>Do not use the help panel as a general navigation footer — it is specifically for citizen support.</li>
+          <li>Do not include promotional content or non-support links in the panel.</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Wrap the panel in <code>&lt;section aria-label="Help and support"&gt;</code> or <code>&lt;aside aria-label="Help and support"&gt;</code> to create a navigable landmark region.</span>
+            <span class="criterion">1.3.6 / best practice</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Phone numbers must use <code>href="tel:+353..."</code> so mobile devices can initiate a call directly. Display the number in human-readable format with international prefix.</span>
+            <span class="criterion">2.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>External links (privacy policy) must include a visually hidden indicator and <code>target="_blank" rel="noopener"</code>. Warn users they are leaving the service.</span>
+            <span class="criterion">3.2.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>White text <code>#FFFFFF</code> and light teal <code>#EAF4F5</code> on the dark green <code>#004D44</code> background both achieve well above 4.5:1 contrast. Do not use any lighter or lower-contrast text colour.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Each row in the panel must be an <code>&lt;a&gt;</code> element with a descriptive label. The row touch target must meet 44px minimum height.</span>
+            <span class="criterion">2.5.5 / 4.1.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Icons within the panel rows are decorative — they repeat the meaning of the adjacent text. Apply <code>aria-hidden="true"</code> to all panel icons.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;section class="help-panel" aria-label="Help and support"&gt;
+  &lt;h2 class="help-panel__heading"&gt;Need help?&lt;/h2&gt;
+
+  &lt;a href="#chat" class="help-panel__row"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;chat&lt;/span&gt;
+    &lt;div&gt;
+      &lt;strong&gt;Chat with our digital assistant&lt;/strong&gt;
+      &lt;span&gt;Available 24/7&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+
+  &lt;a href="tel:+35318882000" class="help-panel__row"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;phone&lt;/span&gt;
+    &lt;div&gt;
+      &lt;strong&gt;Call us&lt;/strong&gt;
+      &lt;span&gt;+353 1 888 2000 · Mon–Fri 9am–5pm&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+
+  &lt;a href="/privacy" class="help-panel__row" target="_blank" rel="noopener"&gt;
+    &lt;span class="material-icons" aria-hidden="true"&gt;open_in_new&lt;/span&gt;
+    &lt;strong&gt;Privacy policy&lt;/strong&gt;
+    &lt;span class="visually-hidden"&gt;(opens in new tab)&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.help-panel {
+  background: var(--color-bg-help);   /* #004D44 */
+  width: 100%;
+}
+
+.help-panel__heading {
+  font-size: var(--text-h4);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-on-dark);
+  padding: 20px var(--page-margin-x) 12px;
+}
+
+.help-panel__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px var(--page-margin-x);
+  border-top: 1px solid var(--color-border-on-dark);
+  color: var(--color-text-help);
+  text-decoration: none;
+  min-height: 48px;
+}
+
+.help-panel__row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Visually hidden utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next component</span>
+        <div class="content-footer__links"><a href="navigation.html">Navigation →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

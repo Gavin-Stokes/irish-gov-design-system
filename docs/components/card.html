@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card — Irish Government Design System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script>window.DOCS_ROOT = '../';</script>
+  <style>
+    /* Card demos */
+    .card-demo { background:#EAF4F5; border-radius:10px; box-shadow:0 4px 4px rgba(0,0,0,0.25); padding:20px; width:260px; position:relative; overflow:hidden; }
+    .card-demo__eyebrow { font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#505A5F; margin-bottom:6px; }
+    .card-demo__title { font-size:18px; font-weight:700; color:#004D44; margin-bottom:8px; font-family:'Lato',sans-serif; }
+    .card-demo__body { font-size:14px; color:#505A5F; line-height:1.5; margin-bottom:16px; font-family:'Lato',sans-serif; }
+    .card-demo__pill { display:inline-block; background:#fff; border-radius:24px; padding:2px 14px; font-size:12px; font-weight:600; color:#004D44; margin-bottom:8px; }
+    .card-demo__illus { position:absolute; top:12px; right:12px; width:48px; height:48px; background:#D5EEDB; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .card-demo__illus .material-icons { color:#004D44; font-size:24px; }
+    .inner-card { background:#F0F0F0; border-radius:8px; padding:14px 16px; margin-top:8px; }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="topbar" role="banner">
+  <button class="topbar__menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"><span class="material-icons">menu</span></button>
+  <a href="../index.html" class="topbar__logo">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="2" fill="rgba(255,255,255,0.15)"/><path d="M12 3 L12 20 M9 5 Q12 4 15 5 M9 8 Q12 7 15 8 M8 12 Q12 10.5 16 12 M7 16 Q12 14 17 16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Irish Gov Design System
+  </a>
+  <span class="topbar__divider" aria-hidden="true"></span>
+  <span class="topbar__title">Card</span>
+  <div class="topbar__version">v1.0</div>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="Documentation navigation"><div id="nav-container"></div></nav>
+  <main id="main-content" class="content">
+    <div class="content-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li>Components</li><li aria-current="page">Card</li></ol></nav>
+
+      <div class="page-header">
+        <h1>Card</h1>
+        <p class="page-header__desc">Cards group related information and actions into a visually distinct surface. Each card communicates one primary idea.</p>
+        <div class="page-header__tags">
+          <span class="tag tag--component">Component</span>
+          <span class="tag tag--aa">WCAG 2.1 AA</span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Page sections">
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-usage" id="tab-usage">Usage</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-a11y" id="tab-a11y">Accessibility</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-code" id="tab-code">Code</button>
+      </div>
+
+      <div id="panel-usage" role="tabpanel" aria-labelledby="tab-usage">
+        <h2>Variants</h2>
+
+        <h3>Service card</h3>
+        <p>Used on the home screen to surface available supports and services. Background <code>#EAF4F5</code>, 10px radius, card shadow. Decorative illustration sits top-right.</p>
+        <div class="demo demo--centered">
+          <div class="card-demo">
+            <div class="card-demo__illus" aria-hidden="true"><span class="material-icons">home</span></div>
+            <div class="card-demo__eyebrow">Current application</div>
+            <div class="card-demo__title">Social housing application</div>
+            <div class="card-demo__body">Continue your application or check the status of a previous submission.</div>
+            <button class="btn btn--primary" style="font-size:14px;padding:10px 16px;min-height:40px">Continue <span class="material-icons" aria-hidden="true" style="font-size:16px">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <h3>Application status card</h3>
+        <p>Shows the citizen's current application with a status pill. The pill uses white background with <code>border-radius: 24px</code>.</p>
+        <div class="demo demo--centered">
+          <div class="card-demo">
+            <div class="card-demo__pill">In review</div>
+            <div class="card-demo__title">Social housing application</div>
+            <div class="card-demo__body">Submitted 12 January 2026 · Ref: SH-2026-00142</div>
+            <button class="btn btn--tertiary" style="font-size:14px;padding:4px 0">View details <span class="material-icons" aria-hidden="true" style="font-size:16px">arrow_forward</span></button>
+          </div>
+        </div>
+
+        <h3>Inner card</h3>
+        <p>Used for nested content blocks, checklist items, and step summaries. Background <code>#F0F0F0</code>, 8px radius, no shadow.</p>
+        <div class="demo demo--centered">
+          <div style="width:300px">
+            <div class="inner-card" style="display:flex;align-items:center;gap:10px">
+              <span class="material-icons" style="color:#008660">check_circle</span>
+              <span style="font-size:14px;font-family:'Lato',sans-serif">Personal details — Complete</span>
+            </div>
+            <div class="inner-card" style="display:flex;align-items:center;gap:10px;margin-top:8px">
+              <span class="material-icons" style="color:#888">radio_button_unchecked</span>
+              <span style="font-size:14px;font-family:'Lato',sans-serif;color:#505A5F">Employment — Not started</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Anatomy</h2>
+        <div class="anatomy">
+          <div class="card-demo" style="width:100%;max-width:320px;margin:0 auto">
+            <div class="card-demo__illus" aria-hidden="true"><span class="material-icons">home</span></div>
+            <div class="card-demo__eyebrow">Section label</div>
+            <div class="card-demo__title">Card heading</div>
+            <div class="card-demo__body">Supporting description text that explains the card's purpose.</div>
+            <button class="btn btn--primary" style="font-size:14px;padding:10px 16px;min-height:40px">Primary action <span class="material-icons" aria-hidden="true" style="font-size:16px">arrow_forward</span></button>
+          </div>
+          <ol class="anatomy__list">
+            <li><span class="anatomy__num">1</span> Illustration (decorative, aria-hidden)</li>
+            <li><span class="anatomy__num">2</span> Eyebrow / overline label</li>
+            <li><span class="anatomy__num">3</span> Card heading (h2 or h3)</li>
+            <li><span class="anatomy__num">4</span> Supporting description</li>
+            <li><span class="anatomy__num">5</span> Primary CTA button</li>
+          </ol>
+        </div>
+
+        <h2>When to use</h2>
+        <ul>
+          <li>Use cards to surface distinct services, applications, or information blocks on the home screen.</li>
+          <li>Use inner cards to group checklist items or step progress within a larger card or section.</li>
+          <li>Use status cards when the application has a trackable state (submitted, in review, approved).</li>
+        </ul>
+
+        <h2>When not to use</h2>
+        <ul>
+          <li>Do not use cards purely for visual decoration — every card should contain actionable or informational content.</li>
+          <li>Do not stack more than three or four cards vertically without a break — consider a list or summary view instead.</li>
+          <li>Do not add borders to cards — elevation comes from the shadow only.</li>
+        </ul>
+      </div>
+
+      <div id="panel-a11y" role="tabpanel" aria-labelledby="tab-a11y">
+        <div class="callout callout--info">
+          <span class="material-icons" aria-hidden="true">info</span>
+          <div>Cards must communicate their content to screen readers through proper heading structure and semantic HTML — the visual styling alone is not perceivable by assistive technology.</div>
+        </div>
+
+        <h2>Accessibility checklist</h2>
+        <ul class="a11y-checklist">
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Card headings must use the correct heading level for their position in the page hierarchy — typically <code>&lt;h2&gt;</code> for top-level cards, <code>&lt;h3&gt;</code> for nested cards. Never skip heading levels.</span>
+            <span class="criterion">1.3.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>If the entire card is interactive (clickable), wrap it in a single <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code>. Do not attach click handlers to <code>&lt;div&gt;</code> elements.</span>
+            <span class="criterion">4.1.2 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Decorative illustrations must have <code>alt=""</code> and <code>aria-hidden="true"</code>. They add no information that isn't already conveyed by the card text.</span>
+            <span class="criterion">1.1.1 A</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Status pills that update dynamically (e.g. "In review" → "Approved") should be inside an <code>aria-live="polite"</code> region so screen readers announce the change.</span>
+            <span class="criterion">4.1.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>The background colour <code>#EAF4F5</code> paired with near-black body text <code>#0B0C0C</code> achieves 16:1 contrast — well above the 4.5:1 AA minimum.</span>
+            <span class="criterion">1.4.3 AA</span>
+          </li>
+          <li>
+            <span class="material-icons" aria-hidden="true">check_circle</span>
+            <span>Any interactive element inside a card (button, link) must individually receive keyboard focus — focus must not jump from the card container to outside it.</span>
+            <span class="criterion">2.1.1 A</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-code" role="tabpanel" aria-labelledby="tab-code">
+        <h2>Service card</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">HTML</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>&lt;div class="service-card"&gt;
+  &lt;!-- Decorative illustration --&gt;
+  &lt;img src="../../assets/illustration-house.png"
+       alt=""
+       aria-hidden="true"
+       class="service-card__illus"&gt;
+
+  &lt;p class="service-card__eyebrow"&gt;Current application&lt;/p&gt;
+  &lt;h2 class="service-card__title"&gt;Social housing application&lt;/h2&gt;
+  &lt;p class="service-card__body"&gt;
+    Continue your application or check the status of a previous submission.
+  &lt;/p&gt;
+
+  &lt;button class="btn btn--primary" type="button"&gt;
+    Continue
+    &lt;span class="material-icons" aria-hidden="true"&gt;arrow_forward&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2>CSS</h2>
+        <div class="code-block">
+          <div class="code-block__header"><span class="code-block__lang">CSS</span><button class="code-block__copy">Copy</button></div>
+          <pre><code>.service-card {
+  background: var(--color-bg-card);      /* #EAF4F5 */
+  border-radius: var(--radius-card-lg);  /* 10px */
+  box-shadow: var(--shadow-card);
+  padding: var(--card-padding);          /* 20px */
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card__title {
+  font-size: var(--text-h3);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-2);
+}
+
+.service-card__illus {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+/* Inner card (nested) */
+.inner-card {
+  background: var(--color-bg-card-inner); /* #F0F0F0 */
+  border-radius: var(--radius-card);      /* 8px */
+  padding: 14px 16px;
+  /* No shadow on inner cards */
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="content-footer">
+        <span class="content-footer__text">Next component</span>
+        <div class="content-footer__links"><a href="form-field.html">Form field →</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../nav.js"></script>
+</body>
+</html>

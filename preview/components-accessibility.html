@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 20px 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .rule {
+    border-radius: 6px; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .rule-do { border-left: 4px solid #008660; background: #F0FAF4; }
+  .rule-dont { border-left: 4px solid #d4351c; background: #FDF2F0; }
+  .rule-info { border-left: 4px solid #004D44; background: #EAF4F5; }
+  .rule-title { font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+  .rule-title .material-icons { font-size: 15px; }
+  .do-icon { color: #008660; }
+  .dont-icon { color: #d4351c; }
+  .info-icon { color: #004D44; }
+  .rule-body { font-size: 12px; color: #505A5F; line-height: 1.5; }
+  .rule-body code { background: rgba(0,0,0,0.06); padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin: 14px 0 8px; }
+  .section-label:first-child { margin-top: 0; }
+  .contrast-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+  .contrast-chip {
+    padding: 6px 12px; border-radius: 4px; font-size: 13px; font-weight: 700;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .pass { position: relative; }
+  .pass::after { content: '✓ PASS'; font-size: 9px; font-weight: 700; color: #008660; }
+  .fail::after { content: '✗ FAIL'; font-size: 9px; font-weight: 700; color: #d4351c; }
+</style>
+</head>
+<body>
+  <div class="section-label">WCAG Colour Contrast</div>
+  <div class="contrast-row">
+    <div class="contrast-chip pass" style="background:#004D44;color:#fff">White on Green 900</div>
+    <div class="contrast-chip pass" style="background:#008660;color:#fff">White on Green 800</div>
+    <div class="contrast-chip pass" style="background:#EAF4F5;color:#0B0C0C">Dark on Teal 50</div>
+    <div class="contrast-chip pass" style="background:#F2F2F2;color:#0B0C0C">Dark on Page BG</div>
+    <div class="contrast-chip fail" style="background:#EAF4F5;color:#888">Grey on Teal 50</div>
+    <div class="contrast-chip pass" style="background:#EAF4F5;color:#004D44">Green 900 on Teal 50</div>
+  </div>
+
+  <div class="section-label">Do's &amp; Don'ts</div>
+  <div class="grid">
+    <div class="rule rule-do">
+      <div class="rule-title"><span class="material-icons do-icon">check_circle</span> DO use sentence case</div>
+      <div class="rule-body">"Start application", "Apply now", "What happens next?" — never ALL CAPS or Title Case for body copy.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-title"><span class="material-icons dont-icon">cancel</span> DON'T use colour alone for state</div>
+      <div class="rule-body">Always pair colour with an icon or text label. e.g. error fields need <code>aria-describedby</code> + visible error message, not just a red border.</div>
+    </div>
+    <div class="rule rule-do">
+      <div class="rule-title"><span class="material-icons do-icon">check_circle</span> DO provide visible focus styles</div>
+      <div class="rule-body">Focus ring: <code>outline: 3px solid #FFBF47</code> (GOVUK-style gold focus). Never <code>outline: none</code>.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-title"><span class="material-icons dont-icon">cancel</span> DON'T use placeholder as label</div>
+      <div class="rule-body">Always use a visible <code>&lt;label&gt;</code> element. Placeholder text disappears on focus and is inaccessible to screen readers.</div>
+    </div>
+    <div class="rule rule-do">
+      <div class="rule-title"><span class="material-icons do-icon">check_circle</span> DO use sufficient touch targets</div>
+      <div class="rule-body">Minimum 44×44px for all interactive elements on mobile. Standard buttons are 48–58px height.</div>
+    </div>
+    <div class="rule rule-dont">
+      <div class="rule-title"><span class="material-icons dont-icon">cancel</span> DON'T rely on icons alone</div>
+      <div class="rule-body">Icon buttons must have <code>aria-label</code> or visible text label. e.g. the notification bell needs <code>aria-label="Notifications"</code>.</div>
+    </div>
+    <div class="rule rule-info">
+      <div class="rule-title"><span class="material-icons info-icon">info</span> Language: Irish + English</div>
+      <div class="rule-body">Use <code>lang="en"</code> on <code>&lt;html&gt;</code>. Irish-language content (e.g. "An Garda Síochána") should use <code>lang="ga"</code> on the relevant span.</div>
+    </div>
+    <div class="rule rule-info">
+      <div class="rule-title"><span class="material-icons info-icon">info</span> WCAG 2.1 AA Target</div>
+      <div class="rule-body">All public-facing Irish Government digital services must meet WCAG 2.1 Level AA. Heading hierarchy, skip links, and keyboard navigation are required.</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: #fff; padding: 20px 24px; }
+  .section { margin-bottom: 20px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  /* PRIMARY */
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: #00875F; color: #fff; border: none; border-radius: 4px;
+    font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400;
+    padding: 12px 24px; height: 48px; cursor: pointer; text-decoration: none;
+  }
+  .btn-primary-lg { height: 58px; width: 100%; max-width: 320px; }
+  .btn-primary-dark { background: #004D44; }
+  .btn-primary:hover { background: #006B4E; }
+  .btn-primary:disabled, .btn-disabled { background: #CCCCCC; color: #888; cursor: not-allowed; }
+  .material-icons { font-size: 20px; }
+
+  /* SECONDARY */
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: transparent; color: #004D44; border: 2px solid #004D44; border-radius: 4px;
+    font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400;
+    padding: 10px 24px; height: 48px; cursor: pointer;
+  }
+  .btn-secondary:hover { background: #EAF4F5; }
+
+  /* TERTIARY */
+  .btn-tertiary {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: #004D44; border: none;
+    font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700;
+    padding: 0; cursor: pointer; text-decoration: underline;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: #004D44; font-size: 16px; text-decoration: underline; cursor: pointer;
+    background: none; border: none; font-family: 'Lato', sans-serif;
+  }
+
+  /* CHIP */
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #004D44; color: #fff; border-radius: 24px;
+    font-size: 14px; padding: 4px 14px; font-family: 'Lato', sans-serif;
+  }
+  .chip-outline {
+    background: transparent; color: #004D44; border: 1.5px solid #004D44;
+  }
+  .chip-white {
+    background: #fff; color: #0B0C0C; border: none;
+  }
+</style>
+</head>
+<body>
+  <div class="section">
+    <div class="section-label">Primary Button</div>
+    <div class="row">
+      <button class="btn-primary">Apply now <span class="material-icons">arrow_forward</span></button>
+      <button class="btn-primary btn-primary-dark">Start application <span class="material-icons">arrow_forward</span></button>
+      <button class="btn-primary btn-disabled" disabled>Disabled</button>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Primary Full-Width</div>
+    <div class="row">
+      <button class="btn-primary btn-primary-lg">Apply now <span class="material-icons">arrow_forward</span></button>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Secondary / Outlined</div>
+    <div class="row">
+      <button class="btn-secondary">View details</button>
+      <button class="btn-secondary" style="border-color:#EAF4F5;color:#EAF4F5;background:transparent">On dark bg</button>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Tertiary &amp; Back Link</div>
+    <div class="row">
+      <button class="btn-tertiary">Return to dashboard</button>
+      <button class="back-link"><span class="material-icons" style="font-size:20px">chevron_left</span> Home</button>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Chips / Pills</div>
+    <div class="row">
+      <span class="chip">Personal details</span>
+      <span class="chip chip-outline">Employment</span>
+      <span class="chip chip-white">Date approved: 16/06/2023</span>
+    </div>
+  </div>
+</body>
+</html>
